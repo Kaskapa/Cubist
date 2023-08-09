@@ -68,8 +68,8 @@ export function startHandler(event){
     }
     document.getElementById("timer").style.color = "white";
 }
-export function stopHandler(event){
-    if(event.code === "Space" && started){
+export function stopHandler(){
+    if(started){
         stop();
         document.removeEventListener("keydown", stopHandler);
         document.getElementById("timer").style.color = "red";

@@ -15,25 +15,20 @@ let cube = scrambleCubeArray(moves, new Cube());
 let draw = new Draw(cube, canvas);
 
 draw.drawScramble();
-
 table.fillTable();
+table.pressRow();
+
+document.getElementById("scramble").innerText = scramble;
 
 document.addEventListener("keyup", timer.startHandler);
 document.addEventListener("keydown", function(e){
-    if(e.repeat){
-        return;
-    }
-    if(e.code === "Space" && !timer.started){
+    if(e.code === "Space" && timer.spaceUp == 0){
         document.getElementById("timer").style.color = "green";
     }
-    else if(e.code === "Space"){
-        newScramble();
-        canvasDrawer();
-        dataFill();
-        table.addRow();
+    else if(timer.started){
+        init();
     }
 })
-document.getElementById("scramble").innerText = scramble;
 
 function newScramble(){
     randomNumber = Math.floor(Math.random() * (25 - 20) ) + 20;
@@ -49,9 +44,19 @@ function canvasDrawer(){
 }
 function dataFill(){
     let data = {
-        "nr": (JSON.parse(localStorage.getItem('session')) || []).length + 1,
-        "time": document.getElementById("timer").innerText
+        "time": document.getElementById("timer").innerText,
+        "scramble": scramble,
+        "cube": cube,
+        "date": Date.now()
     };
 
     saveDataToLocalStorage(data);
+}
+function init(){
+    dataFill();
+    table.addRow();
+    table.pressRow();
+
+    newScramble();
+    canvasDrawer();
 }

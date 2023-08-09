@@ -35,13 +35,15 @@ main{
     align-items: center;
 }
 
-#scramble{
+.scramble{
     font-size: 3.5rem;
     color: white;
     text-align: center;
 }
-#timer{
+.timer{
     color: white;
+    text-align: center;
+    font-size: 4rem;
 }
 
 table {
@@ -55,7 +57,6 @@ th, td {
 }
 th{
     top: 0;
-    position: sticky;
     background-color: #202122;
 }
 tr:hover {
@@ -74,23 +75,48 @@ tr:hover {
     overflow-y:scroll;
 }
 .table {
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 .table::-webkit-scrollbar { 
-    display: none;  /* Safari and Chrome */
+    display: none;
 }
-
-canvas{
+.canvas{
     background-color: #202122;
     border-radius: 1rem;
+}
+#dialog-canvas{
+    background-color: transparent;
+    padding: 0;
+    margin: auto;
+    display: block;
 }
 .tools{
     display: flex;
     gap: 2rem;
+    margin-top: 3rem;
 }
 
-
-
-
+dialog{
+    min-height: 70rem;
+    max-width: 60rem;
+    width: 100%;
+    background-color: #202122;
+    border: none;
+    border-radius: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.076) 1rem 1rem 1rem 0.5rem;
+}
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.438);
+}
+#dialog-close{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 2rem;
+    color: white;
+    vertical-align: top;
+    outline: none;
+    float: right;
+}
 /*https://realtimecolors.com/?colors=fbf9fa-171213-afc0bb-2b2224-7e9a92*/
