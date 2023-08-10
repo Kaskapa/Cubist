@@ -15,7 +15,7 @@ svg{
     margin: 1rem 0rem 1rem 1rem;
     display: inline-block;
 }
-header{
+#header{
     background-color: #202122;
     min-height: 8rem;
 }
@@ -97,6 +97,8 @@ tr:hover {
     margin-top: 3rem;
 }
 
+
+
 dialog{
     min-height: 70rem;
     max-width: 60rem;
@@ -115,8 +117,99 @@ dialog::backdrop {
     cursor: pointer;
     font-size: 2rem;
     color: white;
-    vertical-align: top;
     outline: none;
-    float: right;
 }
+#dialog-header{
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem;
+    align-items: center;
+}
+#dialog-date{
+    color: #726B6B;
+    font-size: 1.4rem;
+    margin: 0;
+}
+#dialog-scramble{
+    font-size: 3.2rem;
+    margin: 2rem;
+    margin-top: 4rem;
+}
+.time{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin: 2rem;
+}
+.time h4{
+    font-size: 1.6rem;
+    color: white;
+    margin: 1rem;
+}
+.time h1{
+    font-size: 4.8rem;
+    margin: auto;
+    color: white;
+}
+.time h2{
+    font-size: 2.4rem;
+    margin: auto;
+}
+.small-container{
+    background-color: #2F3032;
+    display: flex;
+    border-radius: 1.5rem;
+    max-width: 14rem;
+    width: 14rem;
+    min-height: 6rem;
+    border: 0.2rem solid #37373a;
+}
+.container{
+    background-color: #2F3032;
+    display: flex;
+    border-radius: 2rem;
+    max-width: 25rem;
+    width: 25rem;
+    min-height: 10rem;
+    border: 0.2rem solid #37373a;
+}
+#dialog-canvas{
+    margin-top: 5rem;
+}
+.buttons{
+    gap: 1rem;
+    display: flex;
+    margin: 2rem;
+    justify-content: center;
+}
+#dialog-delete{
+    background-color: #2F3032;
+    color: white;
+    border: none;
+    border: 0.01rem red solid;
+    border-radius: 1.5rem;
+    width: 15rem;
+    height: 4rem;
+    font-size: 2.1rem;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+#dialog-delete:hover{
+    background-color: rgb(223, 1, 1);
+}
+#dialog-pluss-two{
+    background-color: #2F3032;
+    color: white;
+    border: none;
+    border-radius: 1.5rem;
+    width: 5rem;
+    height: 4rem;
+    font-size: 2.1rem;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+#dialog-pluss-two:hover{
+    background-color: #262729;
+}
+
 /*https://realtimecolors.com/?colors=fbf9fa-171213-afc0bb-2b2224-7e9a92*/
