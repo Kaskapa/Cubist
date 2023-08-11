@@ -53,7 +53,8 @@ table {
 }
 th, td {
     padding: 8px;
-    text-align: left;
+    text-align: center;
+    vertical-align: middle;
 }
 th{
     top: 0;
@@ -85,12 +86,6 @@ tr:hover {
     background-color: #202122;
     border-radius: 1rem;
 }
-#dialog-canvas{
-    background-color: transparent;
-    padding: 0;
-    margin: auto;
-    display: block;
-}
 .tools{
     display: flex;
     gap: 2rem;
@@ -99,6 +94,12 @@ tr:hover {
 
 
 
+#dialog-canvas{
+    background-color: transparent;
+    padding: 0;
+    margin: auto;
+    display: block;
+}
 dialog{
     min-height: 70rem;
     max-width: 60rem;
@@ -197,16 +198,19 @@ dialog::backdrop {
 #dialog-delete:hover{
     background-color: rgb(223, 1, 1);
 }
-#dialog-pluss-two{
+.small-dialog-btn{
     background-color: #2F3032;
     color: white;
     border: none;
     border-radius: 1.5rem;
     width: 5rem;
     height: 4rem;
-    font-size: 2.1rem;
+    font-size: 2rem;
     cursor: pointer;
     transition: all 0.5s;
+}
+#dialog-dnf{
+    width: 6rem;
 }
 #dialog-pluss-two:hover{
     background-color: #262729;

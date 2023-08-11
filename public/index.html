@@ -23,7 +23,7 @@
     <main>
         <dialog id="dialog" data-role="dialog">
             <header id="dialog-header">
-                <p id="dialog-date" class="date">02/02/2023</p>
+                <p id="dialog-date" class="date"></p>
                 <button id="dialog-close">x</button>
             </header>
 
@@ -33,7 +33,7 @@
                 <div id="dialog-ao5">
                     <h4 id="dialog-ao5-title">AO5</h4>
                     <div id="dialog-ao5-container" class="small-container">
-                        <h2 id="dialog-ao5-time">02.034</h2>
+                        <h2 id="dialog-ao5-time"></h2>
                     </div>
                 </div>
                 <div id="dialog-time">
@@ -46,7 +46,7 @@
                 <div id="dialog-ao12">
                     <h4 id="dialog-ao12-title">AO12</h4>
                     <div id="dialog-ao12-container" class="small-container">
-                        <h2 id="dialog-ao12-time">02.034</h2>
+                        <h2 id="dialog-ao12-time"></h2>
                     </div>
                 </div>
             </div>
@@ -55,7 +55,8 @@
 
             <div class="buttons">
                 <button id="dialog-delete">Delete</button>
-                <button id="dialog-pluss-two">+2</button>
+                <button id="dialog-pluss-two" class="small-dialog-btn">+2</button>
+                <button id="dialog-dnf" class="small-dialog-btn">DNF</button>
             </div>
         </dialog>
     
@@ -67,9 +68,8 @@
                 <table id="table">
                     <tbody id="tableBody">
                         <tr>
-                            <th>NR.</th>
+                            <th width="10%">NR.</th>
                             <th>Time</th>
-                            <th>AO5</th>
                         </tr>
                     </tbody>
                 </table>
