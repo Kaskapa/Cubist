@@ -1,5 +1,5 @@
 import { Draw } from "./draw.js";
-import { plussTwoTable, pressRow } from "./table.js";
+import { deleteRow, plussTwoTable, pressRow } from "./table.js";
 
 let dialogDOM = document.getElementById("dialog");
 let scrambleDOM = document.getElementById("dialog-scramble");
@@ -41,6 +41,11 @@ export function openDialog(scramble, time, cube, ao5, ao12, date){
         pressRow();
     }
 
+    document.getElementById("dialog-delete").onclick = function(){
+        deleteRow();
+        pressRow();
+    }
+
 }
 export function plussTwoBTN(time, ao5, ao12, index){
     timerDOM.innerText = time;
@@ -55,4 +60,10 @@ export function plussTwoBTN(time, ao5, ao12, index){
     }else{
         document.getElementById("dialog-pluss-two").style.backgroundColor = "#2F3032";
     }
+}
+
+export function deleteBTN(){
+    document.getElementById("dialog").close();
+    localStorage.removeItem("index");
+    
 }

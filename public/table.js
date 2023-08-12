@@ -49,7 +49,12 @@ export function pressRow(){
 }
 
 export function deleteRow(){
-    
+    fileManager.deleteDataFromLocalStorage(localStorage.getItem("index"));
+    data = JSON.parse(localStorage.getItem('session')) || [];
+    popup.deleteBTN();
+
+    deleteAllRows();
+    fillTable();
 }
 
 function calcAONum(index, aoIndex){
