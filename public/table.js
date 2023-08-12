@@ -1,4 +1,5 @@
 import * as popup from "./popup.js"
+import * as fileManager from "./filePersistance.js"
 
 let data = JSON.parse(localStorage.getItem('session')) || [];
 
@@ -40,6 +41,7 @@ export function pressRow(){
             let ao5 = calcAONum(table.rows.length - index - 1, 5);
             let ao12 = calcAONum(table.rows.length - index - 1, 12);
 
+            localStorage.setItem("index", table.rows.length - index - 1);
 
             popup.openDialog(scramble, time, cube, ao5, ao12, today);
         });
@@ -63,4 +65,28 @@ function calcAONum(index, aoIndex){
     }
 
     return ao;
+}
+
+export function plussTwoTable(){
+    fileManager.plussTwoFileManager(localStorage.getItem("index"));
+
+    data = JSON.parse(localStorage.getItem('session')) || [];
+    let ao5 = calcAONum(localStorage.getItem("index"), 5);
+    let ao12 = calcAONum(localStorage.getItem("index"), 12);
+    let time = data[localStorage.getItem("index")].time;
+    
+
+    popup.plussTwoBTN(time, ao5, ao12, localStorage.getItem("index"));
+
+    deleteAllRows();
+    fillTable();
+}
+
+function deleteAllRows(){
+    let table = document.getElementById("table");
+
+    let rowCount = table.rows.length;
+    for (let i = rowCount - 1; i > 0; i--) {
+        table.deleteRow(i);
+    }
 }

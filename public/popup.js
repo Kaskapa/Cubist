@@ -1,4 +1,5 @@
 import { Draw } from "./draw.js";
+import { plussTwoTable, pressRow } from "./table.js";
 
 let dialogDOM = document.getElementById("dialog");
 let scrambleDOM = document.getElementById("dialog-scramble");
@@ -15,6 +16,15 @@ export function openDialog(scramble, time, cube, ao5, ao12, date){
     ao12DOM.innerText = ao12;
     dateDOM.innerText = date + "";
 
+    var a = [];
+    a = JSON.parse(localStorage.getItem('session')) || [];
+
+    if(a[localStorage.getItem("index")].plussTwo){
+        document.getElementById("dialog-pluss-two").style.backgroundColor = "orange";
+    }else{
+        document.getElementById("dialog-pluss-two").style.backgroundColor = "#2F3032";
+    }
+
     let draw = new Draw(cube, canvasDOM);
     
     draw.drawScramble();
@@ -23,5 +33,26 @@ export function openDialog(scramble, time, cube, ao5, ao12, date){
     
     document.getElementById("dialog-close").onclick = function(){
         document.getElementById("dialog").close();
+        localStorage.removeItem("index");
+    }
+
+    document.getElementById("dialog-pluss-two").onclick = function(){
+        plussTwoTable();
+        pressRow();
+    }
+
+}
+export function plussTwoBTN(time, ao5, ao12, index){
+    timerDOM.innerText = time;
+    ao5DOM.innerText = ao5;
+    ao12DOM.innerText = ao12;
+
+    var a = [];
+    a = JSON.parse(localStorage.getItem('session')) || [];
+
+    if(a[index].plussTwo){
+        document.getElementById("dialog-pluss-two").style.backgroundColor = "orange";
+    }else{
+        document.getElementById("dialog-pluss-two").style.backgroundColor = "#2F3032";
     }
 }

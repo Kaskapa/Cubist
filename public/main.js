@@ -47,7 +47,9 @@ function dataFill(){
         "time": document.getElementById("timer").innerText,
         "scramble": scramble,
         "cube": cube,
-        "date": Date.now()
+        "date": Date.now(),
+        "plussTwo": false,
+        "dnf": false
     };
 
     saveDataToLocalStorage(data);

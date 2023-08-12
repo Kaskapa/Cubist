@@ -31,13 +31,13 @@ function startTimer () {
     let mins = timeMS % 60;
 
     if(seconds < 10){
-        document.getElementById("seconds").innerText = "0" + seconds;
+        document.getElementById("seconds").innerText = seconds;
     }else{
         document.getElementById("seconds").innerText = seconds;
     }
 
     if(mins > 0 && mins < 10){
-        document.getElementById("minutes").innerText = "0" + mins + ":";
+        document.getElementById("minutes").innerText = mins + ":";
     }else if(mins > 0){
         document.getElementById("minutes").innerText = mins + ":";
     }else{
