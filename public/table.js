@@ -32,6 +32,10 @@ export function pressRow(){
 
     Array.from(rows).forEach((row, index) => {
         row.addEventListener('click', () => {
+            if(index == 0){
+                return;
+            }
+
             let scramble = data[table.rows.length - index - 1].scramble;
             let time = data[table.rows.length - index - 1].time;
             let cube = data[table.rows.length - index - 1].cube;
