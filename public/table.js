@@ -12,6 +12,10 @@ export function fillTable() {
 
         cell1.innerHTML = i + 1;
         cell2.innerHTML = data[i].time;
+        if(data[i].dnf){
+            cell2.innerHTML = "DNF";
+        }
+
     }
 }
 
@@ -35,15 +39,21 @@ export function pressRow(){
             if(index == 0){
                 return;
             }
+            let time = "DNF";
+            let ao5 = "";
+            let ao12 = "";
+
+            if(!data[table.rows.length - index - 1].dnf){
+                time = data[table.rows.length - index - 1].time;
+                ao5 = calcAONum(table.rows.length - index - 1, 5);
+                ao12 = calcAONum(table.rows.length - index - 1, 12);
+            }
 
             let scramble = data[table.rows.length - index - 1].scramble;
-            let time = data[table.rows.length - index - 1].time;
             let cube = data[table.rows.length - index - 1].cube;
             let date = data[table.rows.length - index - 1].date;
             let today = new Date(date);
             today = today.toLocaleDateString();
-            let ao5 = calcAONum(table.rows.length - index - 1, 5);
-            let ao12 = calcAONum(table.rows.length - index - 1, 12);
 
             localStorage.setItem("index", table.rows.length - index - 1);
 
@@ -86,6 +96,26 @@ export function plussTwoTable(){
     
 
     popup.plussTwoBTN(time, ao5, ao12, localStorage.getItem("index"));
+
+    deleteAllRows();
+    fillTable();
+}
+
+export function dnfTable(){
+    fileManager.dnfFileManager(localStorage.getItem("index"));
+    data = JSON.parse(localStorage.getItem('session')) || [];
+
+    let time = "DNF";
+    let ao5 = "";
+    let ao12 = "";
+
+    if(!data[localStorage.getItem("index")].dnf){
+        time = data[localStorage.getItem("index")].time;
+        ao5 = calcAONum(localStorage.getItem("index"), 5);
+        ao12 = calcAONum(localStorage.getItem("index"), 12);
+    }
+
+    popup.dnfPopUp(time, ao5, ao12, localStorage.getItem("index"));
 
     deleteAllRows();
     fillTable();

@@ -26,3 +26,15 @@ export function plussTwoFileManager(index){
 
     localStorage.setItem('session', JSON.stringify(a));
 }
+export function dnfFileManager(index){
+    var a = [];
+    a = JSON.parse(localStorage.getItem('session')) || [];
+
+   if(a[index].dnf){
+    a[index].dnf = false;
+   }else{
+    a[index].dnf = true;
+   }
+
+    localStorage.setItem('session', JSON.stringify(a));
+}
