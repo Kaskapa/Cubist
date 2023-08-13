@@ -24,6 +24,7 @@ export function openDialog(scramble, time, cube, ao5, ao12, date){
     }else{
         document.getElementById("dialog-pluss-two").style.backgroundColor = "#2F3032";
     }
+
     if(a[localStorage.getItem("index")].dnf){
         document.getElementById("dialog-dnf").style.backgroundColor = "red";
     }else{
@@ -36,26 +37,7 @@ export function openDialog(scramble, time, cube, ao5, ao12, date){
 
     dialogDOM.showModal();
     
-    document.getElementById("dialog-close").onclick = function(){
-        document.getElementById("dialog").close();
-        localStorage.removeItem("index");
-    }
-
-    document.getElementById("dialog-pluss-two").onclick = function(){
-        plussTwoTable();
-        pressRow();
-    }
-
-    document.getElementById("dialog-dnf").onclick = function(){
-        dnfTable();
-        pressRow();
-    }
-
-    document.getElementById("dialog-delete").onclick = function(){
-        deleteRow();
-        pressRow();
-    }
-
+    addFunctionsToButtons();
 }
 export function plussTwoBTN(time, ao5, ao12, index){
     var a = [];
@@ -91,4 +73,26 @@ export function dnfPopUp(time, ao5, ao12, index){
 export function deleteBTN(){
     document.getElementById("dialog").close();
     localStorage.removeItem("index");
+}
+
+function addFunctionsToButtons(){
+    document.getElementById("dialog-close").onclick = function(){
+        document.getElementById("dialog").close();
+        localStorage.removeItem("index");
+    }
+
+    document.getElementById("dialog-pluss-two").onclick = function(){
+        plussTwoTable();
+        pressRow();
+    }
+
+    document.getElementById("dialog-dnf").onclick = function(){
+        dnfTable();
+        pressRow();
+    }
+
+    document.getElementById("dialog-delete").onclick = function(){
+        deleteRow();
+        pressRow();
+    }
 }
