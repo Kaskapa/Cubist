@@ -70,8 +70,7 @@ tr:hover {
     background-color: #202122;
     border-radius: 1rem;
 
-    max-width:30rem;
-    width: 30rem;
+    max-width:32rem;
     height:25rem;
     overflow-y:scroll;
 }
