@@ -20,15 +20,14 @@ table.pressRow();
 
 document.getElementById("scramble").innerText = scramble;
 
-document.addEventListener("keyup", timer.startHandler);
-document.addEventListener("keydown", function(e){
-    if(e.code === "Space" && timer.spaceUp == 0){
-        document.getElementById("timer").style.color = "green";
-    }
-    else if(timer.started){
+document.addEventListener("keydown", timer.timeEventHandler);
+document.addEventListener("keydown", function(){
+    if(timer.started){
         init();
     }
 })
+
+
 
 function newScramble(){
     randomNumber = Math.floor(Math.random() * (25 - 20) ) + 20;
