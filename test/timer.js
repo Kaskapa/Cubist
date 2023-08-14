@@ -1,17 +1,17 @@
 let startDate;
 let timeoutID = 0;
 let time;
-export let started = false;
-export let spaceUp = 0;
+export let started = false, spaceUp = 0;
 
-export function start(){
+
+function start(){
     if(!started){
         startDate = new Date();
         startTimer();
         started = true;
     }
 }
-export function stop(){
+function stop(){
     if(started){
         clearTimeout(timeoutID);
         started = false;
@@ -30,11 +30,9 @@ function startTimer () {
     timeMS = (timeMS - seconds) / 60;
     let mins = timeMS % 60;
 
-    if(seconds < 10){
-        document.getElementById("seconds").innerText = "0" + seconds;
-    }else{
-        document.getElementById("seconds").innerText = seconds;
-    }
+    
+    document.getElementById("seconds").innerText = seconds;
+    
 
     if(mins > 0 && mins < 10){
         document.getElementById("minutes").innerText = "0" + mins + ":";
@@ -56,22 +54,57 @@ function startTimer () {
     timeoutID = setTimeout(startTimer, 0);
 }
 
-export function startHandler(event){
+let timoutBeforeStart = 0;
+const desiredTime = 1;
+
+export function timeEventHandler(e){
+    if(e.code === "Space"){
+        setTimeout(function(){
+            if(timoutBeforeStart < desiredTime && spaceUp == 0){
+                document.getElementById("timer").style.color = "orange";
+            }
+            if(timoutBeforeStart == desiredTime){
+                document.addEventListener("keyup", startHandler);
+                document.removeEventListener("keydown", timeEventHandler);
+            }
+            timoutBeforeStart++;
+        }, 0)
+    }
+}
+
+document.addEventListener("keydown", function(e){
+    if(e.code === "Space" && spaceUp == 0 && timoutBeforeStart == desiredTime){
+        document.getElementById("timer").style.color = "green";
+    }
+})
+
+document.addEventListener("keyup", function(){
+    timoutBeforeStart = 0;
+    if(timoutBeforeStart < desiredTime){
+        document.getElementById("timer").style.color = "black";
+    }
+})
+
+function startHandler(event){
     if(event.code === "Space" && spaceUp < 1){
         start();
-        spaceUp ++;
+        spaceUp++;
         document.addEventListener("keydown", stopHandler);
         document.removeEventListener("keyup", startHandler);
         
     }else if(spaceUp == 1){
         spaceUp = 0;
+        document.addEventListener("keydown", timeEventHandler);
+        document.removeEventListener("keyup", startHandler);
     }
     document.getElementById("timer").style.color = "black";
 }
-export function stopHandler(){
+function stopHandler(){
     if(started){
         stop();
-        document.removeEventListener("keydown", stopHandler);
+        document.addEventListener("keyup", startHandler);
         document.getElementById("timer").style.color = "red";
+        
+        document.removeEventListener("keydown", stopHandler);
     }
 }
