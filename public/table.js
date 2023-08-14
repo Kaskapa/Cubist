@@ -9,13 +9,16 @@ export function fillTable() {
         let row = table.insertRow(1);
         let cell1 = row.insertCell(0);
         let cell2 = row.insertCell(1);
+        let cell3 = row.insertCell(2);
+        let cell4 = row.insertCell(3);
 
         cell1.innerHTML = i + 1;
         cell2.innerHTML = data[i].time;
         if(data[i].dnf){
             cell2.innerHTML = "DNF";
         }
-
+        cell3.innerHTML = calcAONum(i, 5);
+        cell4.innerHTML = calcAONum(i, 12);
     }
 }
 
@@ -25,9 +28,13 @@ export function addRow(){
     let row = table.insertRow(1);
     let cell1 = row.insertCell(0);
     let cell2 = row.insertCell(1);
+    let cell3 = row.insertCell(2);
+    let cell4 = row.insertCell(3);
 
     cell1.innerHTML = data.length;
     cell2.innerHTML = data[data.length-1].time;
+    cell3.innerHTML = calcAONum(data.length-1, 5);
+    cell4.innerHTML = calcAONum(data.length-1, 12);
 }
 
 export function pressRow(){
