@@ -84,13 +84,32 @@ function calcAONum(index, aoIndex){
 
     if(index >= aoIndex-1){
         let aoNum = 0;
+        let dnfCount = 0;
         for(let i = index; i > index - aoIndex; i--){
-            aoNum += Number(arr[i].time);
+            let max = Number(arr[i].time);
+            if(arr[i].dnf){
+                dnfCount++;
+                max = findMax(arr, index, aoIndex);
+            }
+            if(dnfCount == 2){
+                return "DNF";
+            }
+            aoNum += max;
         }
         ao = (Math.round((aoNum/aoIndex) * 1000) / 1000) + "";
     }
 
     return ao;
+}
+
+function findMax(arr, index, aoIndex){
+    let max = 0;
+    for(let i = index; i > index - aoIndex; i--){
+        if(max < Number(arr[i].time)){
+            max = Number(arr[i].time);
+        }
+    }
+    return max;
 }
 
 export function plussTwoTable(){
