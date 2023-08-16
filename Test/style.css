@@ -1,0 +1,84 @@
+html{
+    font-size: 10px;
+    font-family: 'Lunasima', sans-serif;
+    user-select: none;
+}
+body{
+    margin: 0rem;
+    overflow: hidden;
+    background: rgb(82,109,130);
+    background: linear-gradient(90deg, rgba(82,109,130,1) 0%, rgba(39,55,77,1) 100%); 
+}
+svg{
+    max-width: 18rem;
+    height: auto;
+    fill: white;
+    margin: 1rem 0rem 1rem 1rem;
+    display: inline-block;
+}
+#header{
+    min-height: 8rem;
+}
+h2{
+    display: inline-block;
+    color: white;
+    font-size: 1.8rem;
+    margin: auto;
+    vertical-align: top;
+    margin-top: 4rem;
+}
+
+.scramble{
+    font-size: 3.5rem;
+    color: white;
+    text-align: center;
+}
+.timer{
+    color: white;
+    text-align: center;
+    font-size: 4rem;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    width: 90%;
+}
+th, td {
+    padding: 8px;
+    text-align: center;
+    vertical-align: middle;
+}
+th{
+    top: 0;
+}
+tr:hover {
+    background-color: #dcdddd;
+}
+.table{
+    font-size: 2rem;
+    color: white;
+    
+    border-radius: 1rem;
+
+    max-width:32rem;
+    height:25rem;
+    overflow-y:scroll;
+}
+.table {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.table::-webkit-scrollbar { 
+    display: none;
+}
+.canvas{
+    border-radius: 1rem;
+}
+.tools{
+    display: flex;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+/*https://realtimecolors.com/?colors=fbf9fa-171213-afc0bb-2b2224-7e9a92*/
