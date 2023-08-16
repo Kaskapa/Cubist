@@ -98,7 +98,6 @@ function calcAONum(index, aoIndex){
         }
         ao = (Math.round((aoNum/aoIndex) * 1000) / 1000) + "";
     }
-
     return ao;
 }
 
