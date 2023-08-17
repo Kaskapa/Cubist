@@ -83,32 +83,90 @@ function calcAONum(index, aoIndex){
     let arr = JSON.parse(localStorage.getItem('session')) || [];
 
     if(index >= aoIndex-1){
+        console.log(arr);
+
+        let maxDnf = 0;
+        let maxMin = 0;
+
+        let dnfNumber = dnfNum(arr, index, aoIndex);
+
+        if(aoIndex < 5){
+            maxDnf = 1;
+            maxMin = 0;
+        }else if(aoIndex < 12){
+            maxDnf = 2;
+            maxMin = 1;
+        }else if(aoIndex < 40 && aoIndex < 24){
+            maxDnf = 2;
+            maxMin = Math.floor(aoIndex/12);
+        }else if(aoIndex < 40){
+            maxDnf = Math.floor(aoIndex/12);
+            maxMin = Math.floor(aoIndex/12);
+        }else if(aoIndex >= 40){
+            maxDnf = Math.floor(aoIndex/20);
+            maxMin = Math.floor(aoIndex/20);
+        }
+
         let aoNum = 0;
         let dnfCount = 0;
+
+        for(let i = 1; i <= maxMin; i++){
+            arr = removeMin(arr, index, aoIndex);
+            arr = removeMax(arr, index, aoIndex);
+        }
+
         for(let i = index; i > index - aoIndex; i--){
             let max = Number(arr[i].time);
-            if(arr[i].dnf){
+            if(arr[i].dnf && Number(arr[i].time) == 0){
                 dnfCount++;
-                max = findMax(arr, index, aoIndex);
+                max = 0;
+            }else if(arr[i].dnf){
+                dnfCount++;
+                max = dnfNumber;
             }
-            if(dnfCount == 2){
+            if(dnfCount == maxDnf){
                 return "DNF";
             }
+
+            console.log(max);
+
             aoNum += max;
         }
-        ao = (Math.round((aoNum/aoIndex) * 1000) / 1000) + "";
+        ao = (Math.round((aoNum/(aoIndex - (maxMin * 2))) * 1000) / 1000) + "";
     }
     return ao;
 }
 
-function findMax(arr, index, aoIndex){
-    let max = 0;
+function dnfNum(arr, index, aoIndex){
+    let max = Number(arr[index].time);
     for(let i = index; i > index - aoIndex; i--){
         if(max < Number(arr[i].time)){
             max = Number(arr[i].time);
         }
     }
     return max;
+}
+
+function removeMax(arr, index, aoIndex){
+    let max = index;
+    for(let i = index; i > index - aoIndex; i--){
+        if(Number(arr[max].time) < Number(arr[i].time) && Number(arr[i].time) != 0){
+            max = i;
+        }
+    }
+    arr[max].time = 0;
+    return arr;
+}
+
+function removeMin(arr, index, aoIndex){
+    let min = index;
+    for(let i = index; i > index - aoIndex; i--){
+        if(Number(arr[min].time) > Number(arr[i].time) && !arr[i].dnf && Number(arr[i].time) != 0){
+            min = i;
+        }
+    }
+    arr[min].time = 0;
+    return arr;
 }
 
 export function plussTwoTable(){
