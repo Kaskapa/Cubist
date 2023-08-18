@@ -2,6 +2,8 @@ import { Cube } from "./rubiksCube.js";
 const colors = ["white", "orange", "green", "red", "blue", "yellow"];
 const x = 15;
 const y = 25;
+const cubeSize = 35;
+const placement = 120;
 
 export class Draw{
     constructor(cube = new Cube, canvas){
@@ -15,8 +17,8 @@ export class Draw{
         for(let i = 0; i < 3; i++){
             for(let j = 0; j < 3; j++){
                 this.ctx.fillStyle = colors[this.cube.cube[1][i][j]];
-                this.ctx.fillRect(x + (20 * j), y + 70 + (20 * i), 19, 19);
-                this.ctx.strokeRect(x + (20 * j), y + 70 + (20 * i), 20, 20);
+                this.ctx.fillRect(x + (cubeSize * j), y + placement + (cubeSize * i), cubeSize, cubeSize);
+                this.ctx.strokeRect(x + (cubeSize * j), y + placement + (cubeSize * i), cubeSize, cubeSize);
                 this.ctx.closePath();
                 this.ctx.stroke();
             }
@@ -27,8 +29,8 @@ export class Draw{
         for(let i = 0; i < 3; i++){
             for(let j = 0; j < 3; j++){
                 this.ctx.fillStyle = colors[this.cube.cube[2][i][j]];
-                this.ctx.fillRect(x + (20 * j) + 70, y + 70 + (20 * i), 19, 19);
-                this.ctx.strokeRect(x + (20 * j) + 70, y + 70 + (20 * i), 20, 20);
+                this.ctx.fillRect(x + (cubeSize * j) + placement, y + placement + (cubeSize * i), cubeSize, cubeSize);
+                this.ctx.strokeRect(x + (cubeSize * j) + placement, y + placement + (cubeSize * i), cubeSize, cubeSize);
                 this.ctx.closePath();
                 this.ctx.stroke();
             }
@@ -39,8 +41,8 @@ export class Draw{
         for(let i = 0; i < 3; i++){
             for(let j = 0; j < 3; j++){
                 this.ctx.fillStyle = colors[this.cube.cube[0][i][j]];
-                this.ctx.fillRect(x + (20 * j) + 70, y + (20 * i), 19, 19);
-                this.ctx.strokeRect(x + (20 * j) + 70, y + (20 * i), 20, 20);
+                this.ctx.fillRect(x + (cubeSize * j) + placement, y + (cubeSize * i), cubeSize, cubeSize);
+                this.ctx.strokeRect(x + (cubeSize * j) + placement, y + (cubeSize * i), cubeSize,cubeSize);
                 this.ctx.closePath();
                 this.ctx.stroke();
             }
@@ -51,8 +53,8 @@ export class Draw{
         for(let i = 0; i < 3; i++){
             for(let j = 0; j < 3; j++){
                 this.ctx.fillStyle = colors[this.cube.cube[5][i][j]];
-                this.ctx.fillRect(x + (20 * j) + 70, y + 140 + (20 * i), 19, 19);
-                this.ctx.strokeRect(x + (20 * j) + 70, y + 140 + (20 * i), 20, 20);
+                this.ctx.fillRect(x + (cubeSize * j) + placement, y + (placement*2) + (cubeSize * i), cubeSize, cubeSize);
+                this.ctx.strokeRect(x + (cubeSize * j) + placement, y + (placement*2) + (cubeSize * i), cubeSize, cubeSize);
                 this.ctx.closePath();
                 this.ctx.stroke();
             }
@@ -63,8 +65,8 @@ export class Draw{
         for(let i = 0; i < 3; i++){
             for(let j = 0; j < 3; j++){
                 this.ctx.fillStyle = colors[this.cube.cube[3][i][j]];
-                this.ctx.fillRect(x + (20 * j) + 140, y + 70 + (20 * i), 19, 19);
-                this.ctx.strokeRect(x + (20 * j) + 140, y + 70 + (20 * i), 20, 20);
+                this.ctx.fillRect(x + (cubeSize * j) + (placement*2), y + placement + (cubeSize * i), cubeSize, cubeSize);
+                this.ctx.strokeRect(x + (cubeSize * j) + (placement*2), y + placement + (cubeSize * i), cubeSize, cubeSize);
                 this.ctx.closePath();
                 this.ctx.stroke();
             }
@@ -75,8 +77,8 @@ export class Draw{
         for(let i = 0; i < 3; i++){
             for(let j = 0; j < 3; j++){
                 this.ctx.fillStyle = colors[this.cube.cube[4][i][j]];
-                this.ctx.fillRect(x + (20 * j) + 210, y + 70 + (20 * i), 19, 19);
-                this.ctx.strokeRect(x + (20 * j) + 210, y + 70 + (20 * i), 20, 20);
+                this.ctx.fillRect(x + (cubeSize * j) + (placement*3), y + placement + (cubeSize * i), cubeSize, cubeSize);
+                this.ctx.strokeRect(x + (cubeSize * j) + (placement*3), y + placement + (cubeSize * i), cubeSize, cubeSize);
                 this.ctx.closePath();
                 this.ctx.stroke();
             }
