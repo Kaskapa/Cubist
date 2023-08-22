@@ -83,7 +83,6 @@ function calcAONum(index, aoIndex){
     let arr = JSON.parse(localStorage.getItem('session')) || [];
 
     if(index >= aoIndex-1){
-        console.log(arr);
 
         let maxDnf = 0;
         let maxMin = 0;
@@ -127,8 +126,6 @@ function calcAONum(index, aoIndex){
             if(dnfCount == maxDnf){
                 return "DNF";
             }
-
-            console.log(max);
 
             aoNum += max;
         }
