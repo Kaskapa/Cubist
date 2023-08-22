@@ -1,68 +1,89 @@
+:root{
+    --background: #F0F5F9;
+    --font-color: black;
+    --tool-color: #ECF1F4;
+}
 html{
     font-size: 10px;
-    font-family: 'Lunasima', sans-serif;
+    font-family: 'Inter', sans-serif;
+    color: var(--font-color);
     user-select: none;
 }
 body{
-    margin: 0rem;
+    background-color: var(--background);
     overflow: hidden;
-    background: rgb(82,109,130);
-    background: linear-gradient(90deg, rgba(82,109,130,1) 0%, rgba(39,55,77,1) 100%); 
 }
 svg{
     max-width: 18rem;
     height: auto;
-    fill: white;
     margin: 1rem 0rem 1rem 1rem;
     display: inline-block;
 }
-#header{
-    min-height: 8rem;
-}
-h2{
+header h2{
     display: inline-block;
-    color: white;
     font-size: 1.8rem;
     margin: auto;
     vertical-align: top;
     margin-top: 4rem;
+    font-weight: 400;
+}
+.time-and-scramble #scramble{
+    font-size: clamp(3rem, 4vw, 6rem);
+    text-align: center;
+    margin: 3rem;
+    font-weight: 600;
+}
+.time-and-scramble #timer{
+    font-size: clamp(6rem, 4vw, 11rem);
+    margin: 0;
+    margin-top: 6rem;
+    text-align: center;
+}
+.tools{
+    display: flex;
+    width: 100%;
+    height: 50vh;
+    position: absolute;
+    justify-content: space-evenly;
+    bottom: 0;
+}
+.tools div{
+    background-color: var(--tool-color);
+    margin-bottom: 2rem;
+    margin-top: 4rem;
+    border-radius: 2rem;
+    border: 0.1rem solid black;
+    bottom: 0;
+    width: 30%;
+    box-shadow: var(--tool-color) 8px -8px 0px -1px, black 8px -8px;
 }
 
-.scramble{
-    font-size: 3.5rem;
-    color: white;
-    text-align: center;
-}
-.timer{
-    color: white;
-    text-align: center;
-    font-size: 4rem;
+#myCanvas{
+    width: 100%;
+    height: 100%;
 }
 
 table {
-    border-collapse: collapse;
     margin: 0 auto;
+    margin-top: 1rem;
+    border-collapse: collapse;
     width: 90%;
+
 }
 th, td {
-    padding: 8px;
+    padding: 0.8rem;
     text-align: center;
-    vertical-align: middle;
 }
 th{
     top: 0;
+    border-bottom: 0.1rem solid #4B4B4B;
 }
-tr:hover {
-    background-color: #dcdddd;
+td{
+    border-bottom: 0.1rem solid #8A8383;
+    height: 5rem;
 }
 .table{
-    font-size: 2rem;
-    color: white;
-    
-    border-radius: 1rem;
-
-    max-width:32rem;
-    height:25rem;
+    font-size: 3rem;
     overflow-y:scroll;
 }
 .table {
@@ -72,13 +93,3 @@ tr:hover {
 .table::-webkit-scrollbar { 
     display: none;
 }
-.canvas{
-    border-radius: 1rem;
-}
-.tools{
-    display: flex;
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-/*https://realtimecolors.com/?colors=fbf9fa-171213-afc0bb-2b2224-7e9a92*/

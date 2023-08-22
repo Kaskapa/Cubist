@@ -14,6 +14,11 @@ let scramble = createScrambleFromArray(moves);
 let cube = scrambleCubeArray(moves, new Cube());
 let draw = new Draw(cube, canvas);
 
+let heightRatio = 1;
+let widthRatio = 1.3;
+canvas.height = canvas.width * heightRatio;
+canvas.width = canvas.width * widthRatio;
+
 draw.drawScramble();
 table.fillTable();
 table.pressRow();

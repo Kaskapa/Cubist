@@ -81,7 +81,7 @@ document.addEventListener("keydown", function(e){
 document.addEventListener("keyup", function(){
     timoutBeforeStart = 0;
     if(timoutBeforeStart < desiredTime){
-        document.getElementById("timer").style.color = "white";
+        document.getElementById("timer").style.color = getComputedStyle(document.documentElement).getPropertyValue('--font-color');
     }
 })
 
@@ -97,7 +97,7 @@ function startHandler(event){
         document.addEventListener("keydown", timeEventHandler);
         document.removeEventListener("keyup", startHandler);
     }
-    document.getElementById("timer").style.color = "white";
+    document.getElementById("timer").style.color = getComputedStyle(document.documentElement).getPropertyValue('--font-color');
 }
 function stopHandler(){
     if(started){

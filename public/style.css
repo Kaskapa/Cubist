@@ -1,91 +1,156 @@
+:root{
+    --background: #F0F5F9;
+    --font-color: black;
+    --tool-color: #ECF1F4;
+}
 html{
     font-size: 10px;
-    font-family: 'Lunasima', sans-serif;
+    font-family: 'Inter', sans-serif;
+    color: var(--font-color);
     user-select: none;
 }
 body{
-    margin: 0rem;
+    background-color: var(--background);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
     overflow: hidden;
-    background-color: #161719;
 }
 svg{
-    max-width: 18rem;
-    height: auto;
-    fill: white;
+    width: 18rem;
     margin: 1rem 0rem 1rem 1rem;
     display: inline-block;
+    fill: var(--font-color);
 }
-h2{
+main{
+    height: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-end;
+    width: min(160rem, 100%);
+    margin: 0 auto;
+}
+header{
+    display: flex;
+    justify-content: space-between;    
+}
+
+header h2{
     display: inline-block;
-    color: white;
     font-size: 1.8rem;
     margin: auto;
     vertical-align: top;
     margin-top: 4rem;
+    font-weight: 400;
 }
-main{
-    flex-direction: column; 
-    justify-content: center; 
-    align-items: center;
+.time-and-scramble #scramble{
+    font-size: clamp(3rem, 4vw, 6rem);
+    text-align: center;
+    margin: 0;
+    margin-top: 3rem;
+    font-weight: 600;
+    height: 13rem;
+}
+.time-and-scramble #timer{
+    font-size: clamp(6rem, 6vw, 11rem);
+    margin: 0;
+    margin-top: 2rem;
+    text-align: center;
+    color: var(--font-color);
+}
+.tools{
+    margin-top: auto;
+    margin-bottom: 4rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: flex-end;
+}
+.tools .tool-container{
+    background-color: var(--tool-color);
+    margin-top: 4rem;
+    border-radius: 2rem;
+    border: 0.1rem solid var(--font-color);
+    width: 30%;
+    box-shadow: var(--tool-color) 1.1rem -1.1rem 0rem -0.1rem, var(--font-color) 1.1rem -1.1rem;
+    text-align: center;
+    height: min(40vh, 40rem);
 }
 
-.scramble{
-    font-size: 3.5rem;
-    color: white;
-    text-align: center;
+#draw-scramble{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.timer{
-    color: white;
-    text-align: center;
-    font-size: 4rem;
+#myCanvas{
+    height: fit-content;
 }
+
 
 table {
-    border-collapse: collapse;
     margin: 0 auto;
-    width: 95%;
+    margin-top: 1rem;
+    border-collapse: collapse;
+    width: 90%;
 }
 th, td {
-    padding: 8px;
+    padding: 0.8rem;
     text-align: center;
-    vertical-align: middle;
 }
 th{
     top: 0;
-    background-color: #222325;
+    border-bottom: 0.1rem solid #4B4B4B;
 }
-tr:hover {
-    background-color: #dcdddd;
+td{
+    border-bottom: 0.1rem solid #8A8383;
+    height: 5rem;
 }
-.table{
-    font-size: 2.5rem;
-    color: white;
-    
-    background-color: #222325;
-    border-radius: 1rem;
-
-    max-width:60rem;
-    width: 100%;
-    height:50rem;
+#table-container{
+    font-size: clamp(1rem, 2vw, 3rem);
     overflow-y:scroll;
 }
-.table {
+#table-container {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
-.table::-webkit-scrollbar { 
+#table-container::-webkit-scrollbar { 
     display: none;
 }
-.canvas{
-    background-color: #222325;
-    border-radius: 1rem;
-}
-.tools{
-    display: flex;
-    gap: 2rem;
-    margin-top: 3rem;
-}
 
+#last-scramble #scramble{
+    font-size: 2.8rem;
+    margin: 3rem;
+}
+#last-scramble #time{
+    font-size: 8rem;
+    margin: 0;
+}
+#last-scramble{
+    display: flex;
+    flex-direction: column;
+}
+#last-scramble #dialog-delete{
+    background-color: #21272C;
+    color: white;
+    border: none;
+    border: 0.1rem red solid;
+    border-radius: 2rem;
+    width: 15rem;
+    height: 4rem;
+    font-size: 2.1rem;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+#last-scramble #dialog-delete:hover{
+    background-color: red;
+}
+#last-scramble .buttons{
+    margin-top: auto;
+    margin-bottom: 2rem;
+    display: flex;
+    align-content: flex-end;
+}
 
 
 #dialog-canvas{
@@ -138,13 +203,13 @@ dialog::backdrop {
 }
 .time h4{
     font-size: 1.6rem;
-    color: white;
+    color: var(--font-color);
     margin: 1rem;
 }
 .time h1{
     font-size: 4.8rem;
     margin: auto;
-    color: white;
+    color: var(--font-color);
 }
 .time h2{
     font-size: 2.4rem;
@@ -209,5 +274,3 @@ dialog::backdrop {
 #dialog-pluss-two:hover{
     background-color: #262729;
 }
-
-/*https://realtimecolors.com/?colors=fbf9fa-171213-afc0bb-2b2224-7e9a92*/

@@ -1,9 +1,9 @@
 import { Cube } from "./rubiksCube.js";
 const colors = ["white", "orange", "green", "red", "blue", "yellow"];
-const x = 15;
-const y = 25;
-const cubeSize = 35;
-const placement = 120;
+const x = 0;
+const y = 0;
+const cubeSize = 30;
+const placement = 100;
 
 export class Draw{
     constructor(cube = new Cube, canvas){
