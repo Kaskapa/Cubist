@@ -1,7 +1,7 @@
 import { Cube } from "./rubiksCube.js";
 const colors = ["white", "orange", "green", "red", "blue", "yellow"];
 const x = 0;
-const y = 0;
+const y = 5;
 const cubeSize = 30;
 const placement = 100;
 
