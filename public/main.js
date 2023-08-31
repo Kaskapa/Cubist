@@ -1,5 +1,6 @@
 import { createScrambleFromArray, generateScramble } from "./scramble.js";
-import * as timer from "./timer.js";
+import * as timerDesk from "./timerDesk.js";
+import * as timerPhone from "./timerPhone.js";
 import { scrambleCubeArray } from "./scrambleCube.js";
 import { Cube } from "./rubiksCube.js";
 import { Draw } from "./draw.js";
@@ -25,13 +26,19 @@ table.pressRow();
 
 document.getElementById("scramble").innerText = scramble;
 
-document.addEventListener("keydown", timer.timeEventHandler);
+document.addEventListener("keydown", timerDesk.timeEventHandler);
 document.addEventListener("keydown", function(){
-    if(timer.started){
+    if(timerDesk.started){
         init();
     }
 })
 
+document.getElementById("timer").addEventListener("touchstart", timerPhone.timeEventHandler);
+document.getElementById("timer").addEventListener("touchstart", function(){
+    if(timerPhone.started){
+        init();
+    }
+})
 
 
 function newScramble(){
