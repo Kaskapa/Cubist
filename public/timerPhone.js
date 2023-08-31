@@ -55,7 +55,7 @@ function startTimer () {
 }
 
 let timoutBeforeStart = 0;
-const desiredTime = 1;
+const desiredTime = 0;
 
 export function timeEventHandler(e){
     
