@@ -55,9 +55,9 @@ function startTimer () {
 }
 
 let timoutBeforeStart = 0;
-const desiredTime = 0;
+const desiredTime = 10;
 
-export function timeEventHandler(e){
+export function timeEventHandler(){
     
     setTimeout(function(){
         if(timoutBeforeStart < desiredTime && spaceUp == 0){
