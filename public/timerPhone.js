@@ -55,10 +55,11 @@ function startTimer () {
 }
 
 let timoutBeforeStart = 0;
-const desiredTime = 1000;
+const desiredTime = 90;
+let myInterval;
 
 export function timeEventHandler(){
-    setInterval(function(){
+    myInterval = setInterval(function(){
         if(timoutBeforeStart < desiredTime && spaceUp == 0){
             document.getElementById("timer").style.color = "orange";
             console.log("Whut");
@@ -66,7 +67,7 @@ export function timeEventHandler(){
         if(timoutBeforeStart == desiredTime){
             document.getElementById("timer").addEventListener("touchend", startHandler);
             document.getElementById("timer").removeEventListener("touchstart", timeEventHandler);
-            clearInterval();
+            clearInterval(myInterval);
         }
         timoutBeforeStart++;
     }, 0)
@@ -81,7 +82,7 @@ document.getElementById("timer").addEventListener("touchstart", function(){
 
 document.getElementById("timer").addEventListener("touchend", function(){
     timoutBeforeStart = 0;
-    clearInterval();
+    clearInterval(myInterval);
     if(timoutBeforeStart < desiredTime){
         document.getElementById("timer").style.color = getComputedStyle(document.documentElement).getPropertyValue('--font-color');
     }
