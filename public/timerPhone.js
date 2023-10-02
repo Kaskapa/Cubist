@@ -67,6 +67,7 @@ export function timeEventHandler(){
         if(timoutBeforeStart == desiredTime){
             document.getElementById("timer").addEventListener("touchend", startHandler);
             document.getElementById("timer").removeEventListener("touchstart", timeEventHandler);
+            document.getElementById("timer").style.color = "green";
             clearInterval(myInterval);
         }
         timoutBeforeStart++;
