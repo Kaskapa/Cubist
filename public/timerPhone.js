@@ -68,18 +68,13 @@ export function timeEventHandler(){
             document.getElementById("timer").addEventListener("touchend", startHandler);
             document.getElementById("timer").removeEventListener("touchstart", timeEventHandler);
             document.getElementById("timer").style.color = "green";
+            timoutBeforeStart = 0;
+
             clearInterval(myInterval);
         }
         timoutBeforeStart++;
     }, 0)
-    
 }
-
-document.getElementById("timer").addEventListener("touchstart", function(){
-    if(spaceUp == 0 && timoutBeforeStart == desiredTime){
-        document.getElementById("timer").style.color = "green";
-    }
-})
 
 document.getElementById("timer").addEventListener("touchend", function(){
     timoutBeforeStart = 0;
