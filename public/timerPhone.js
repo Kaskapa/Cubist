@@ -59,6 +59,7 @@ const desiredTime = 90;
 let myInterval;
 
 export function timeEventHandler(){
+    clearInterval(myInterval);
     myInterval = setInterval(function(){
         if(timoutBeforeStart < desiredTime && spaceUp == 0){
             document.getElementById("timer").style.color = "orange";
