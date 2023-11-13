@@ -54,8 +54,8 @@ main{
 }
 
 .container h1{
-    font-size: 11rem;
-    margin: 3rem;
+    font-size: 16vmin;
+    margin: 5%;
     font-weight: 500;
     text-decoration: underline;
 }
@@ -90,12 +90,33 @@ main{
 .container .image{
     background: url("../assets/Vector.svg");
     background-position: center;
-    background-size: 70%;
+    background-size: 70vh;
     background-repeat: no-repeat;
 
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.image .box-preview{
+    border-radius: 1rem;
+    border: 0.4rem solid black;
+    box-shadow: 0.8rem 0.8rem 0 black;
+    width: fit-content;
+    height: fit-content;
+    padding: 7rem 0;
+    background: url("../assets/Vector2.svg"), #5BFFA6;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5rem;
+}
+
+.image .box-preview img{
+    width: 80%;
 }
 
 nav button{
