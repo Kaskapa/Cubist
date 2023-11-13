@@ -1,6 +1,6 @@
 html{
     font-size: 10px;
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Outfit', sans-serif;
     user-select: none;
 }
 body{
@@ -18,10 +18,11 @@ body{
 
 main{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     grid-template-rows: 0.1fr 1fr;
     width: 100dvw;
     margin-left: 0.1rem;
+    
 }
 
 .title{
@@ -29,9 +30,9 @@ main{
     writing-mode: tb-rl;
     transform: rotate(-180deg);
 
-    font-size: 26vh;
+    font-size: 27vh;
     text-align: center;
-    line-height: 100%;
+    line-height: 90%;
 }
 
 .nav-bar{
@@ -43,41 +44,58 @@ main{
 
 .container{
     border: 2px solid black;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+
+    background: url("../assets/Dot\ Grid.svg"), #FFFFA7;
+    background-size: contain;
+
+    display: flex;
 }
 
-.callout{
-    background-color: #86E6C8;
-    width: max-content;
-    box-sizing: border-box;
-    padding: 0.5rem;
-    border: solid 0.1rem black;
-    box-shadow: 4px 4px 0px black;
-    margin: 0;
-}
-
-.text-container{
-    background-color: #FFC528;
-    padding: 4rem;
-    margin-right: -0.2rem;
-}
-
-.text-container h2{
-    margin: 0;
-    font-size: 9rem;
+.container h1{
+    font-size: 11rem;
+    margin: 3rem;
     font-weight: 500;
+    text-decoration: underline;
 }
 
-.text-container p{
-    font-size: 2.5rem;
+.container .text{
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
 }
 
-.text-container-desc{
-    margin-bottom: 0.9rem;
+.container .image{
+    flex-basis: 50%;
 }
 
-.image-container{
-    background-color: #86E6C8;
-    font-weight: bolder;
+.container .big-button{
+    font-size: 4rem;
+    background-color: white;
+    box-shadow: 8px 8px 0 black;
+    border: none;
+    border-radius: 1rem;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    margin-top: auto;
+    margin-left: 3rem;
+    margin-bottom: 9rem;
+    padding: 1rem;
+    border: 2px solid black;
+    width: 26vw;
+    min-width: 37rem;
+}
+
+.container .image{
+    background: url("../assets/Vector.svg");
+    background-position: center;
+    background-size: 70%;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 nav button{
@@ -88,23 +106,33 @@ nav button{
 
     font-family: 'Roboto Mono', monospace;
     padding: 1rem;
-    font-size: 1.8rem;
+    font-size: 2.5rem;
+    font-weight: bold;
     box-sizing: border-box;
-    margin-right: -0.2rem;
     border-top: none;
     border-bottom: none;
 
-    min-width: 20rem;
-    width: 10vw;
+    min-width: 22rem;
+    width: 20vw;
 
     cursor: pointer;
     transition: all 0.2s;
 }
 
+nav button:nth-child(3){
+    margin-right: -0.2rem;
+    border-top-right-radius: 2rem;
+}
+
+nav button:nth-child(1){
+    margin-left: -0.2rem;
+    border-top-left-radius: 2rem;
+    background-color: white;
+}
+
 nav .links{
     box-sizing: border-box;
-    padding-left: 4rem;
-    font-size: 1.8rem;
+    font-size: 2.5rem;
     font-weight: 400;
     display: flex;
     gap: 5rem;
@@ -124,14 +152,14 @@ nav .links a {
         ),
         linear-gradient(0deg, rgb(102, 76, 4) 0%, rgb(126, 15, 5) 100%
     );
-    background-size: 100% 1px, 0 1px;
+    background-size: 100% 2px, 0 2px;
     background-position: 100% 100%, 0 100%;
     background-repeat: no-repeat;
     transition: background-size 400ms;
 }
 
 nav .links a:hover {
-    background-size: 0 1px, 100% 1px;
+    background-size: 0 2px, 100% 2px;
 }
 
 nav .links a{
@@ -160,7 +188,9 @@ nav button:hover{
 nav{
     display: flex;
     justify-content: space-between;
-    margin-bottom: 2rem;
+    margin-bottom: -0.2rem;
     align-items: center;
+    border-top-right-radius: 2rem;
+    border-top-left-radius: 2rem;
 }
 
