@@ -27,17 +27,34 @@
             <div class="tool-container draw-scramble">
                 <h2 class="title">Scramble</h2>
 
-                <select name="type" id="type">
-                    <option value="2x2">2x2</option>
-                    <option value="3x3" selected>3x3</option>
-                    <option value="4x4">4x4</option>
-                    <option value="5x5">5x5</option>
-                    <option value="6x6">6x6</option>
-                    <option value="7x7">7x7</option>
-                </select>
-
-                <img src="../assets/temp_scramble.svg" alt="temp_scramble">
-                <!--<canvas id="myCanvas" class="canvas"></canvas>-->
+                <div class="main-tool-idea-container">
+                    <select name="type" id="type" class="scramble-type-cb">
+                        <option value="2x2">2x2</option>
+                        <option value="3x3" selected>
+                            
+                                <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="7.71429" height="7.71429" fill="black"/>
+                                    <rect x="9.64258" width="7.71429" height="7.71429" fill="black"/>
+                                    <rect x="19.2861" width="7.71429" height="7.71429" fill="black"/>
+                                    <rect y="9.64282" width="7.71429" height="7.71429" fill="black"/>
+                                    <rect x="9.64258" y="9.64282" width="7.71429" height="7.71429" fill="black"/>
+                                    <rect x="19.2861" y="9.64282" width="7.71429" height="7.71429" fill="black"/>
+                                    <rect y="19.2856" width="7.71429" height="7.71429" fill="black"/>
+                                    <rect x="9.64258" y="19.2856" width="7.71429" height="7.71429" fill="black"/>
+                                    <rect x="19.2861" y="19.2856" width="7.71429" height="7.71429" fill="black"/>
+                                </svg>
+                            
+                            3x3
+                        </option>
+                        <option value="4x4">4x4</option>
+                        <option value="5x5">5x5</option>
+                        <option value="6x6">6x6</option>
+                        <option value="7x7">7x7</option>
+                    </select>
+    
+                    <img src="../assets/temp_scramble.svg" alt="temp_scramble">
+                    <!--<canvas id="myCanvas" class="canvas"></canvas>-->
+                </div>
             </div>
         </section>
     </main>
