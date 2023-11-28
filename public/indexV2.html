@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend+Mega:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script src="comboBoxFunctionality.js" defer></script>
 </head>
 <body>
     <nav>
@@ -28,10 +30,13 @@
                 <h2 class="title">Scramble</h2>
 
                 <div class="main-tool-idea-container">
-                    <select name="type" id="type" class="scramble-type-cb">
-                        <option value="2x2">2x2</option>
-                        <option value="3x3" selected>
-                            
+                    <div class="dropdown">
+                        <button onclick="comboBoxOnOff()">3x3</button>
+                        <div class="options">
+                            <p>
+                                2x2
+                            </p>
+                            <p>
                                 <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <rect width="7.71429" height="7.71429" fill="black"/>
                                     <rect x="9.64258" width="7.71429" height="7.71429" fill="black"/>
@@ -43,15 +48,15 @@
                                     <rect x="9.64258" y="19.2856" width="7.71429" height="7.71429" fill="black"/>
                                     <rect x="19.2861" y="19.2856" width="7.71429" height="7.71429" fill="black"/>
                                 </svg>
-                            
-                            3x3
-                        </option>
-                        <option value="4x4">4x4</option>
-                        <option value="5x5">5x5</option>
-                        <option value="6x6">6x6</option>
-                        <option value="7x7">7x7</option>
-                    </select>
-    
+                                3x3
+                            </p>
+                            <p>4x4</p>
+                            <p>5x5</p>
+                            <p>6x6</p>
+                            <p>7x7</p>
+                        </div>
+                    </div>
+
                     <img src="../assets/temp_scramble.svg" alt="temp_scramble">
                     <!--<canvas id="myCanvas" class="canvas"></canvas>-->
                 </div>
