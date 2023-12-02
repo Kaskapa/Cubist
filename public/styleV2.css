@@ -94,6 +94,7 @@ main .tools{
     padding: 2rem;
     box-sizing: border-box;
     display: flex;
+    max-height: 50rem;
 }
 /*---------------------------------Tools--------------------------------------*/
 
@@ -218,6 +219,7 @@ main .tools .time-table .title{
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
     margin: -4px;
+    position: relative;
 }
 
 main .tools .time-table .title h2{
@@ -241,22 +243,49 @@ main .tools .time-table{
 
 main .tools .time-table table tr{
     border: 2px solid black;
-    background-color: #FF69B4;
-}
+    box-shadow: 3px 2px 0px black;
 
-main .tools .time-table #table td{
-    padding: 1em;
-    margin: 1rem 0;
 }
 
 table {
-    margin: 0 auto;
+    margin: 0rem auto;
     border-collapse:separate;
-    border-spacing:0 5px;
+    border-spacing: 0 1.2rem;
     width: 95%;
 }
 
-table tr{
+td {
+    padding: 0.7rem;
+    font-size: 2rem;
+    border-bottom: 2px solid #000;
+    border-top: 2px solid #000;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #fc82dd;
+}
+tr:nth-child(odd){
+    background-color: #ff83cf;
+}
+
+td:first-child {
+    border-left: 2px solid #000;
+}
+
+td:last-child {
+    border-right: 2px solid #000;
+}
+
+.time-table{
+    overflow-y:scroll;
+}
+.time-table {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.time-table::-webkit-scrollbar {
+    display: none;
 }
 /*-------------------------------------Table------------------------------------------*/
 
