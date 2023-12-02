@@ -84,6 +84,8 @@ main .timer-scramble-container .timer{
     border: 4px solid black;
     box-shadow: 4px 4px 0px black;
     margin: auto 3rem;
+    width: 31rem;
+    text-align: center;
 }
 /*---------------------------------Timer and Scramble--------------------------------------*/
 
@@ -289,3 +291,9 @@ td:last-child {
 }
 /*-------------------------------------Table------------------------------------------*/
 
+/*-------------------------------------Canvas------------------------------------------*/
+.tools .canvas{
+    height: 100%;
+    padding: 2rem;
+    box-sizing: border-box;
+}

@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="styleV2.css">
     <title>Cubist</title>
 
+    <script type="module" defer src="main.js"></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend+Mega:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -22,32 +24,21 @@
     </nav>
     <main>
         <div class="timer-scramble-container">
-            <h1 id="scramble" class="scramble">B' L2 R2 D2 F2 U2 F' L2 U2 F2 D2 B L D U2 B' F2 R' D' L U2 B'</h1>
-            <h1 id="timer" class="timer"><span id="minutes"></span><span id="seconds">24</span>.<span id="tens">054</span></h1>
+            <h1 id="scramble" class="scramble"></h1>
+            <h1 id="timer" class="timer"><span id="minutes"></span><span id="seconds">00</span>.<span id="tens">000</span></h1>
         </div>
 
         <section class="tools">
             <div class="tool-container time-table">
+                <div class="title">
+                    <h2>#</h2>
+                    <h2>time</h2>
+                    <h2>ao5</h2>
+                    <h2>ao12</h2>
+                </div>
                 <table id="table">
-                    <div class="title">
-                        <h2>#</h2>
-                        <h2>time</h2>
-                        <h2>ao5</h2>
-                        <h2>ao12</h2>
-                    </div>
                     <tbody id="tableBody">
-                        <tr>
-                            <td>5</td>
-                            <td>24.033</td>
-                            <td>21.021</td>
-                            <td>19.354</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>24.033</td>
-                            <td>21.021</td>
-                            <td>19.354</td>
-                        </tr>
+
                     </tbody>
                 </table>
             </div>
@@ -89,8 +80,7 @@
                         </div>
                     </div>
 
-                    <img src="../assets/temp_scramble.svg" alt="temp_scramble">
-                    <!--<canvas id="myCanvas" class="canvas"></canvas>-->
+                    <canvas id="myCanvas" class="canvas"></canvas>
                 </div>
             </div>
         </section>

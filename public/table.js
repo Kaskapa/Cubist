@@ -6,7 +6,7 @@ let data = JSON.parse(localStorage.getItem('session')) || [];
 export function fillTable() {
     for(let i = 0; i < data.length; i++){
         let table = document.getElementById("table");
-        let row = table.insertRow(1);
+        let row = table.insertRow(0);
         let cell1 = row.insertCell(0);
         let cell2 = row.insertCell(1);
         let cell3 = row.insertCell(2);
@@ -25,7 +25,7 @@ export function fillTable() {
 export function addRow(){
     data = JSON.parse(localStorage.getItem('session')) || [];
     let table = document.getElementById("table");
-    let row = table.insertRow(1);
+    let row = table.insertRow(0 );
     let cell1 = row.insertCell(0);
     let cell2 = row.insertCell(1);
     let cell3 = row.insertCell(2);
@@ -173,7 +173,7 @@ export function plussTwoTable(){
     let ao5 = calcAONum(localStorage.getItem("index"), 5);
     let ao12 = calcAONum(localStorage.getItem("index"), 12);
     let time = data[localStorage.getItem("index")].time;
-    
+
 
     popup.plussTwoBTN(time, ao5, ao12, localStorage.getItem("index"));
 
