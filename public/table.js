@@ -25,7 +25,7 @@ export function fillTable() {
 export function addRow(){
     data = JSON.parse(localStorage.getItem('session')) || [];
     let table = document.getElementById("table");
-    let row = table.insertRow(0 );
+    let row = table.insertRow(0);
     let cell1 = row.insertCell(0);
     let cell2 = row.insertCell(1);
     let cell3 = row.insertCell(2);

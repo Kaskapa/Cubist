@@ -30,9 +30,9 @@ function startTimer () {
     timeMS = (timeMS - seconds) / 60;
     let mins = timeMS % 60;
 
-    
+
     document.getElementById("seconds").innerText = seconds;
-    
+
 
     if(mins > 0 && mins < 10){
         document.getElementById("minutes").innerText = "0" + mins + ":";
@@ -91,7 +91,7 @@ function startHandler(event){
         spaceUp++;
         document.addEventListener("keydown", stopHandler);
         document.removeEventListener("keyup", startHandler);
-        
+
     }else if(spaceUp == 1){
         spaceUp = 0;
         document.addEventListener("keydown", timeEventHandler);
@@ -104,7 +104,7 @@ function stopHandler(){
         stop();
         document.addEventListener("keyup", startHandler);
         document.getElementById("timer").style.color = "red";
-        
+
         document.removeEventListener("keydown", stopHandler);
     }
 }
