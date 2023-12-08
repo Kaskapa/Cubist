@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleV2.css">
+    <title>Cubist</title>
+
+    <script type="module" defer src="main.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Mega:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/9d6976f155.js" crossorigin="anonymous"></script>
+
+    <script src="comboBoxFunctionality.js" defer></script>
+</head>
+<body>
+    <nav>
+        <div class="title">
+            <h1>CUBIST</h1>
+            <h2>Alpha</h2>
+        </div>
+    </nav>
+    <main>
+        <div class="timer-scramble-container">
+            <h1 id="scramble" class="scramble"></h1>
+            <h1 id="timer" class="timer"><span id="minutes"></span><span id="seconds">00</span>.<span id="tens">000</span></h1>
+        </div>
+
+        <section class="tools">
+            <div class="tool-container time-table">
+                <div class="title">
+                    <h2>#</h2>
+                    <h2>time</h2>
+                    <h2>ao5</h2>
+                    <h2>ao12</h2>
+                </div>
+                <table id="table">
+                    <tbody id="tableBody">
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="tool-container draw-scramble">
+                <h2 class="title">Scramble</h2>
+
+                <div class="main-tool-idea-container">
+                    <div class="dropdown">
+                        <button onclick="comboBoxOnOff()" class="combo-box">
+                            <span class="icon-three"></span>
+                            3x3
+                            <i class="fa-solid fa-caret-down"></i>
+                        </button>
+                        <div class="options">
+                            <p class="two-by-two">
+                                <span class="icon-two"></span>
+                                2x2
+                            </p>
+                            <p class="three-by-three">
+                                <span class="icon-three"></span>
+                                3x3
+                            </p>
+                            <p class="four-by-four">
+                                <span class="icon-four"></span>
+                                4x4
+                            </p>
+                            <p class="five-by-five">
+                                <span class="icon-five"></span>
+                                5x5
+                            </p>
+                            <p class="six-by-six">
+                                <span class="icon-six"></span>
+                                6x6
+                            </p>
+                            <p class="seven-by-seven">
+                                <span class="icon-seven"></span>
+                                7x7
+                            </p>
+                        </div>
+                    </div>
+
+                    <canvas id="myCanvas" class="canvas"></canvas>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styleV2.css">
+    <link href="../dist/output.css" rel="stylesheet">
     <title>Cubist</title>
 
     <script type="module" defer src="main.js"></script>
@@ -15,16 +15,16 @@
 
     <script src="comboBoxFunctionality.js" defer></script>
 </head>
-<body>
+<body class="mx-5 mt-4 bg-gradient-to-r from-yellow-50 to-pink-50 flex flex-col h-full font-LexendMega">
     <nav>
-        <div class="title">
-            <h1>CUBIST</h1>
-            <h2>Alpha</h2>
+        <div>
+            <h1 class="text-5xl font-black mb-0 inline-block">CUBIST</h1>
+            <h2 class="inline-block font-black m-0 -ml-4">Alpha</h2>
         </div>
     </nav>
-    <main>
-        <div class="timer-scramble-container">
-            <h1 id="scramble" class="scramble"></h1>
+    <main class="mt-auto flex flex-col bg-main bg-center bg-[linear-gradient(to_right,#ffffff33_1px,transparent_1px),linear-gradient(to_bottom,#ffffff33_1px,transparent_1px)] bg-[size:40px_40px] border-black border-4 rounded-lg">
+        <div class="flex flex-col items-center h-full">
+            <h1 id="scramble" class="bg-accentAqua text-4xl font-bold"></h1>
             <h1 id="timer" class="timer"><span id="minutes"></span><span id="seconds">00</span>.<span id="tens">000</span></h1>
         </div>
 
