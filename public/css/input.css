@@ -24,6 +24,11 @@
             border-bottom: 2px solid #000;
             border-top: 2px solid #000;
             text-align: center;
+            width: 10%;
+        }
+
+        tr{
+            box-shadow: 3px 3px 0px black;
         }
 
         tr:nth-child(even) {
@@ -35,10 +40,30 @@
 
         td:first-child {
             border-left: 2px solid #000;
+            width: 2%;
         }
 
         td:last-child {
             border-right: 2px solid #000;
+        }
+
+        .icon-seven{
+            background: url('../assets/puzzle-icons/7x7.svg');
+        }
+        .icon-six{
+            background: url('../assets/puzzle-icons/6x6.svg');
+        }
+        .icon-five{
+            background: url('../assets/puzzle-icons/5x5.svg');
+        }
+        .icon-four{
+            background: url('../assets/puzzle-icons/4x4.svg');
+        }
+        .icon-three{
+            background: url('../assets/puzzle-icons/3x3.svg');
+        }
+        .icon-two{
+            background: url('../assets/puzzle-icons/2x2.svg');
         }
     }
 }

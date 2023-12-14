@@ -576,10 +576,6 @@ video {
   margin-bottom: 0px;
 }
 
-.mr-10{
-  margin-right: 2.5rem;
-}
-
 .mr-20{
   margin-right: 5rem;
 }
@@ -590,10 +586,6 @@ video {
 
 .mt-auto{
   margin-top: auto;
-}
-
-.mr-12{
-  margin-right: 3rem;
 }
 
 .box-border{
@@ -624,12 +616,16 @@ video {
   height: 100vh;
 }
 
-.max-h-\[33rem\]{
-  max-height: 33rem;
+.max-h-\[33\.3rem\]{
+  max-height: 33.3rem;
 }
 
 .w-\[95\%\]{
   width: 95%;
+}
+
+.min-w-\[30rem\]{
+  min-width: 30rem;
 }
 
 .border-separate{
@@ -656,6 +652,10 @@ video {
 
 .justify-center{
   justify-content: center;
+}
+
+.justify-between{
+  justify-content: space-between;
 }
 
 .overflow-hidden{
@@ -833,6 +833,11 @@ td {
   border-bottom: 2px solid #000;
   border-top: 2px solid #000;
   text-align: center;
+  width: 10%;
+}
+
+tr{
+  box-shadow: 3px 3px 0px black;
 }
 
 tr:nth-child(even) {
@@ -845,8 +850,33 @@ tr:nth-child(odd){
 
 td:first-child {
   border-left: 2px solid #000;
+  width: 2%;
 }
 
 td:last-child {
   border-right: 2px solid #000;
+}
+
+.icon-seven{
+  background: url('../assets/puzzle-icons/7x7.svg');
+}
+
+.icon-six{
+  background: url('../assets/puzzle-icons/6x6.svg');
+}
+
+.icon-five{
+  background: url('../assets/puzzle-icons/5x5.svg');
+}
+
+.icon-four{
+  background: url('../assets/puzzle-icons/4x4.svg');
+}
+
+.icon-three{
+  background: url('../assets/puzzle-icons/3x3.svg');
+}
+
+.icon-two{
+  background: url('../assets/puzzle-icons/2x2.svg');
 }
