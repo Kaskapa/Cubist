@@ -14,8 +14,23 @@
     <script src="https://kit.fontawesome.com/9d6976f155.js" crossorigin="anonymous"></script>
 
     <script src="comboBoxFunctionality.js" defer></script>
+
+    <style>
+        main button span{
+            margin-right: 0.8rem;
+            height: 33px;
+            width: 33px;
+            background-size: contain;
+        }
+        main #options span{
+            margin-right: 0.5rem;
+            height: 34px;
+            width: 34px;
+            background-size: contain;
+        }
+    </style>
 </head>
-<body class="p-5 bg-gradient-to-r from-yellow-50 to-pink-50 flex flex-col h-full font-LexendMega overflow-hidden box-border">
+<body class="p-5 bg-gradient-to-r from-yellow-50 to-pink-50 flex flex-col h-full font-LexendMega overflow-hidden box-border select-none">
     <nav>
         <div>
             <h1 class="text-5xl font-black mb-0 inline-block">CUBIST</h1>
@@ -24,14 +39,15 @@
     </nav>
     <main class="h-full flex flex-col bg-main bg-center bg-[linear-gradient(to_right,#ffffff33_1px,transparent_1px),linear-gradient(to_bottom,#ffffff33_1px,transparent_1px)] bg-[size:40px_40px] border-black border-4 rounded-lg">
         <div class="flex flex-col items-center ">
-            <h1 id="scramble" class="bg-accentAqua text-3xl font-bold px-3 py-1 border-[3px] rounded-md border-black shadow-backDrop mt-6"></h1>
-            <h1 id="timer" class="bg-accentGreen text-7xl font-bold px-12 py-4 border-[3px] border-black shadow-backDrop rounded-md my-12">
-                <span id="minutes"></span><span id="seconds">00</span>.<span id="tens">000</span></h1>
+            <h1 id="scramble" class="bg-accentAqua text-3xl font-bold px-3 py-1 border-[3px] rounded-md border-black shadow-backDrop mt-6 select-text"></h1>
+            <h1 id="timer" class="bg-accentGreen text-8xl align-baseline font-bold pt-4 px-10 py-1 border-[3px] border-black shadow-backDrop rounded-md my-12 font-CourierPrime">
+                <span id="minutes"></span><span id="seconds">00</span>.<span id="tens">000</span>
+            </h1>
         </div>
 
         <section class="mb-0 mt-auto p-6 box-border flex max-h-[33.3rem] justify-center">
-            <div class="h-full bg-white border-[4px] border-black shadow-backDrop rounded-lg box-border overflow-y-auto no-scrollbar mr-20">
-                <div class="bg-accentYellow sticky text-3xl font-bold flex p-3 box-border border-[4px] rounded-t-lg border-black -m-1 -top-1 min-w-[30rem] justify-between">
+            <div class="h-full bg-white border-4 border-black shadow-backDrop rounded-lg box-border overflow-y-auto no-scrollbar mr-20">
+                <div class="bg-accentYellow sticky text-3xl font-bold flex p-3 box-border border-4 overflow-hidden rounded-t-lg border-black -m-1 -top-1 min-w-[30rem] justify-between">
                     <h2 class="">#</h2>
                     <h2 class="">time</h2>
                     <h2 class="">ao5</h2>
@@ -43,45 +59,44 @@
                     </tbody>
                 </table>
             </div>
-            <div class="tool-container draw-scramble">
-                <h2 class="title">Scramble</h2>
+            <div class="bg-white border-black border-4 shadow-backDrop rounded-lg min-w-[30rem] flex flex-col">
+                <h2 class="bg-accentAqua -m-1 py-3 px-5 font-bold box-border text-3xl border-4 border-black rounded-t-lg">Scramble</h2>
 
-                <div class="main-tool-idea-container">
-                    <div class="dropdown">
-                        <button onclick="comboBoxOnOff()" class="combo-box">
-                            <span class="icon-three"></span>
-                            3x3
-                            <i class="fa-solid fa-caret-down"></i>
+                <div class="flex flex-col box-border p-[3%] h-full">
+                    <div class="relative">
+                        <button onclick="comboBoxOnOff()" class="w-full px-2 py-1 text-left text-3xl font-LexendMega font-semibold bg-comboBoxBlue border-[3px] border-black shadow-comboBoxBackDrob cursor-pointer flex items-center">
+                            <span class="icon-three"></span>3x3<i class="fa-solid fa-caret-down mr-4 ml-auto"></i>
                         </button>
-                        <div class="options">
-                            <p class="two-by-two">
+                        <div id="options" class="hidden absolute w-full border-[3px] border-black shadow-comboBoxBackDrob -mt-[3px] box-border cursor-pointer">
+                            <p class="text-2xl bg-comboBoxBlue p-2 font-semibold flex hover:bg-comboBoxBlueHover">
                                 <span class="icon-two"></span>
                                 2x2
                             </p>
-                            <p class="three-by-three">
+                            <p class="text-2xl bg-comboBoxBlue p-2 font-semibold flex hover:bg-comboBoxBlueHover">
                                 <span class="icon-three"></span>
                                 3x3
                             </p>
-                            <p class="four-by-four">
+                            <p class="text-2xl bg-comboBoxBlue p-2 font-semibold flex hover:bg-comboBoxBlueHover">
                                 <span class="icon-four"></span>
                                 4x4
                             </p>
-                            <p class="five-by-five">
+                            <p class="text-2xl bg-comboBoxBlue p-2 font-semibold flex hover:bg-comboBoxBlueHover">
                                 <span class="icon-five"></span>
                                 5x5
                             </p>
-                            <p class="six-by-six">
+                            <p class="text-2xl bg-comboBoxBlue p-2 font-semibold flex hover:bg-comboBoxBlueHover">
                                 <span class="icon-six"></span>
                                 6x6
                             </p>
-                            <p class="seven-by-seven">
+                            <p class="text-2xl bg-comboBoxBlue p-2 font-semibold flex hover:bg-comboBoxBlueHover">
                                 <span class="icon-seven"></span>
                                 7x7
                             </p>
                         </div>
                     </div>
-
-                    <canvas id="myCanvas" class="canvas"></canvas>
+                    <div class="mt-4 h-full flex flex-col justify-center">
+                        <canvas id="myCanvas" class="w-10/12 box-border mx-auto" width="310"></canvas>
+                    </div>
                 </div>
             </div>
         </section>

@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Mega:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
 
 @tailwind base;
 @tailwind components;
@@ -48,22 +51,22 @@
         }
 
         .icon-seven{
-            background: url('../assets/puzzle-icons/7x7.svg');
+            background: url('../../assets/puzzle-icons/7x7.svg');
         }
         .icon-six{
-            background: url('../assets/puzzle-icons/6x6.svg');
+            background: url('../../assets/puzzle-icons/6x6.svg');
         }
         .icon-five{
-            background: url('../assets/puzzle-icons/5x5.svg');
+            background: url('../../assets/puzzle-icons/5x5.svg');
         }
         .icon-four{
-            background: url('../assets/puzzle-icons/4x4.svg');
+            background: url('../../assets/puzzle-icons/4x4.svg');
         }
         .icon-three{
-            background: url('../assets/puzzle-icons/3x3.svg');
+            background: url('../../assets/puzzle-icons/3x3.svg');
         }
         .icon-two{
-            background: url('../assets/puzzle-icons/2x2.svg');
+            background: url('../../assets/puzzle-icons/2x2.svg');
         }
     }
 }
