@@ -1,58 +1,4 @@
-let startDate;
-let timeoutID = 0;
-let time;
-export let started = false, spaceUp = 0;
-
-
-function start(){
-    if(!started){
-        startDate = new Date();
-        startTimer();
-        started = true;
-    }
-}
-function stop(){
-    if(started){
-        clearTimeout(timeoutID);
-        started = false;
-    }
-}
-
-function startTimer () {
-    let current = new Date();
-    time = (current - startDate);
-
-    let timeMS = time;
-
-    let ms = timeMS % 1000;
-    timeMS = (timeMS - ms) / 1000;
-    let seconds = timeMS % 60;
-    timeMS = (timeMS - seconds) / 60;
-    let mins = timeMS % 60;
-
-    
-    document.getElementById("seconds").innerText = seconds;
-    
-
-    if(mins > 0 && mins < 10){
-        document.getElementById("minutes").innerText = "0" + mins + ":";
-    }else if(mins > 0){
-        document.getElementById("minutes").innerText = mins + ":";
-    }else{
-        document.getElementById("minutes").innerText = "";
-    }
-
-    if(ms < 10){
-        document.getElementById("tens").innerText = "00" + ms;
-    }
-    else if(ms < 100){
-        document.getElementById("tens").innerText = "0" + ms;
-    }else{
-        document.getElementById("tens").innerText = ms;
-    }
-
-    timeoutID = setTimeout(startTimer, 0);
-}
+import { start, stop, state } from './timer.js';
 
 let timoutBeforeStart = 0;
 const desiredTime = 90;
@@ -61,7 +7,7 @@ let myInterval;
 export function timeEventHandler(){
     clearInterval(myInterval);
     myInterval = setInterval(function(){
-        if(timoutBeforeStart < desiredTime && spaceUp == 0){
+        if(timoutBeforeStart < desiredTime && state.spaceUp == 0){
             document.getElementById("timer").style.color = "orange";
             console.log("Whut");
         }
@@ -86,25 +32,25 @@ document.getElementById("timer").addEventListener("touchend", function(){
 })
 
 function startHandler(){
-    if(spaceUp < 1){
+    if(state.spaceUp < 1){
         start();
-        spaceUp++;
+        state.spaceUp++;
         document.getElementById("timer").addEventListener("touchstart", stopHandler);
         document.getElementById("timer").removeEventListener("touchend", startHandler);
-        
-    }else if(spaceUp == 1){
-        spaceUp = 0;
+
+    }else if(state.spaceUp == 1){
+        state.spaceUp = 0;
         document.getElementById("timer").addEventListener("touchstart", timeEventHandler);
         document.getElementById("timer").removeEventListener("touchend", startHandler);
     }
     document.getElementById("timer").style.color = getComputedStyle(document.documentElement).getPropertyValue('--font-color');
 }
 function stopHandler(){
-    if(started){
+    if(state.started){
         stop();
         document.getElementById("timer").addEventListener("touchend", startHandler);
         document.getElementById("timer").style.color = "red";
-        
+
         document.getElementById("timer").removeEventListener("touchstart", stopHandler);
     }
 }
