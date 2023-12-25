@@ -22,21 +22,21 @@ export function openDialog(scramble, time, cube, ao5, ao12, date){
     if(a[localStorage.getItem("index")].plussTwo){
         document.getElementById("dialog-pluss-two").style.backgroundColor = "orange";
     }else{
-        document.getElementById("dialog-pluss-two").style.backgroundColor = "#2F3032";
+        document.getElementById("dialog-pluss-two").style.backgroundColor = "#90EE90";
     }
 
     if(a[localStorage.getItem("index")].dnf){
         document.getElementById("dialog-dnf").style.backgroundColor = "red";
     }else{
-        document.getElementById("dialog-dnf").style.backgroundColor = "#2F3032";
+        document.getElementById("dialog-dnf").style.backgroundColor = "#90EE90";
     }
 
-    let draw = new Draw(cube, canvasDOM);
-    
+    let draw = new Draw(cube, canvasDOM, 20, 65, 1, 5, 5);
+
     draw.drawScramble();
 
     dialogDOM.showModal();
-    
+
     addFunctionsToButtons();
 }
 export function plussTwoBTN(time, ao5, ao12, index){
@@ -51,7 +51,7 @@ export function plussTwoBTN(time, ao5, ao12, index){
     if(a[index].plussTwo){
         document.getElementById("dialog-pluss-two").style.backgroundColor = "orange";
     }else{
-        document.getElementById("dialog-pluss-two").style.backgroundColor = "#2F3032";
+        document.getElementById("dialog-pluss-two").style.backgroundColor = "#90EE90";
     }
 }
 
@@ -66,7 +66,7 @@ export function dnfPopUp(time, ao5, ao12, index){
     if(a[index].dnf){
         document.getElementById("dialog-dnf").style.backgroundColor = "red";
     }else{
-        document.getElementById("dialog-dnf").style.backgroundColor = "#2F3032";
+        document.getElementById("dialog-dnf").style.backgroundColor = "#90EE90";
     }
 }
 

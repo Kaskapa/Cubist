@@ -590,6 +590,10 @@ video {
   margin-bottom: 0px;
 }
 
+.mb-8{
+  margin-bottom: 2rem;
+}
+
 .ml-auto{
   margin-left: auto;
 }
@@ -650,20 +654,45 @@ video {
   max-height: 33.3rem;
 }
 
-.w-10\/12{
-  width: 83.333333%;
+.w-\[40rem\]{
+  width: 40rem;
 }
 
 .w-\[95\%\]{
   width: 95%;
 }
 
+.w-fit{
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
 .w-full{
   width: 100%;
 }
 
+.w-10\/12{
+  width: 83.333333%;
+}
+
+.w-9\/12{
+  width: 75%;
+}
+
+.w-2{
+  width: 0.5rem;
+}
+
+.w-2\/12{
+  width: 16.666667%;
+}
+
 .min-w-\[30rem\]{
   min-width: 30rem;
+}
+
+.max-w-xl{
+  max-width: 36rem;
 }
 
 .border-separate{
@@ -746,6 +775,16 @@ video {
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
 
+.bg-\[\#70B1FC\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(112 177 252 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#FFF500\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 245 0 / var(--tw-bg-opacity));
+}
+
 .bg-accentAqua{
   --tw-bg-opacity: 1;
   background-color: rgb(135 206 235 / var(--tw-bg-opacity));
@@ -810,6 +849,10 @@ video {
   padding: 0.75rem;
 }
 
+.p-4{
+  padding: 1rem;
+}
+
 .p-5{
   padding: 1.25rem;
 }
@@ -842,6 +885,11 @@ video {
   padding-right: 1.25rem;
 }
 
+.px-6{
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
 .py-1{
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
@@ -852,6 +900,11 @@ video {
   padding-bottom: 0.75rem;
 }
 
+.py-5{
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
 .pt-4{
   padding-top: 1rem;
 }
@@ -860,8 +913,16 @@ video {
   text-align: left;
 }
 
+.text-center{
+  text-align: center;
+}
+
 .align-baseline{
   vertical-align: baseline;
+}
+
+.align-bottom{
+  vertical-align: bottom;
 }
 
 .font-CourierPrime{
@@ -882,6 +943,11 @@ video {
   line-height: 2.25rem;
 }
 
+.text-4xl{
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
 .text-5xl{
   font-size: 3rem;
   line-height: 1;
@@ -890,6 +956,21 @@ video {
 .text-8xl{
   font-size: 6rem;
   line-height: 1;
+}
+
+.text-sm{
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.text-xl{
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.text-xs{
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 
 .font-black{

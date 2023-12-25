@@ -6,7 +6,7 @@ export function generateScramble(count){
     for(let i = 0; i < count; i++){
         let randomNum = Math.floor(Math.random() * notations.length);
         let move = notations[randomNum];
-        
+
         let whichTurn;
         let whichMove;
         for(let i = 0; i < reverseNotations.length; i++){
@@ -53,10 +53,4 @@ export function createScrambleFromArray(moves){
     scramble = scramble.trim();
 
     return scramble;
-}
-
-export function buttonPress(){
-    let scramble = createScrambleFromArray(generateScramble(20));
-
-    document.getElementById("title").innerText = scramble;
 }

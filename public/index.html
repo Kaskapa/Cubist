@@ -7,13 +7,13 @@
     <title>Cubist</title>
 
     <script type="module" defer src="main.js"></script>
+    <script src="comboBoxFunctionality.js" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend+Mega:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/9d6976f155.js" crossorigin="anonymous"></script>
 
-    <script src="comboBoxFunctionality.js" defer></script>
 
     <style>
         main button span{
@@ -28,9 +28,52 @@
             width: 34px;
             background-size: contain;
         }
+        dialog::backdrop {
+            background-color: rgba(0, 0, 0, 0.438);
+        }
     </style>
 </head>
 <body class="p-5 bg-gradient-to-r from-yellow-50 to-pink-50 flex flex-col h-full font-LexendMega overflow-hidden box-border select-none">
+
+    <dialog id="dialog" data-role="dialog" class="border-[3px] border-black shadow-backDrop rounded-lg w-[40rem] ">
+        <header id="dialog-header" class="flex justify-between p-3">
+            <p id="dialog-date" class="text-xs"></p>
+            <button id="dialog-close" class="text-sm">x</button>
+        </header>
+
+        <h1 id="dialog-scramble" class="bg-[#FFF500] mx-auto max-w-xl text-center font-bold text-2xl border-black border-[3px] shadow-backDrop rounded-lg p-4 mb-8"></h1>
+
+        <div class="mx-auto w-fit my-12">
+            <div id="dialog-ao5" class="inline-block align-bottom">
+                <h4 id="dialog-ao5-title">AO5</h4>
+                <div id="dialog-ao5-container" class="bg-[#70B1FC] border-[3px] border-black rounded-lg shadow-backDrop px-6 text-xl py-3 font-semibold">
+                    <h2 id="dialog-ao5-time"></h2>
+                </div>
+            </div>
+            <div id="dialog-time" class="inline-block align-bottom">
+                <h4 id="dialog-time-title">Title</h4>
+                <div id="dialog-time-container" class="bg-[#70B1FC] border-[3px] border-black rounded-lg shadow-backDrop px-6 text-4xl py-5 font-semibold">
+                    <h1 id="dialog-timer"></h1>
+                </div>
+            </div>
+
+            <div id="dialog-ao12" class="inline-block align-bottom">
+                <h4 id="dialog-ao12-title">AO12</h4>
+                <div id="dialog-ao12-container" class="bg-[#70B1FC] border-[3px] border-black rounded-lg shadow-backDrop px-6 text-xl py-3 font-semibold">
+                    <h2 id="dialog-ao12-time"></h2>
+                </div>
+            </div>
+        </div>
+
+        <canvas id="dialog-canvas" class="box-border mx-auto border-[3px] border-black shadow-backDrop rounded-md p-3 mb-8" height="200" width="270"></canvas>
+
+        <div class="mx-auto w-fit p-2">
+            <button id="dialog-delete" class="p-2 box-border bg-accentGreen border-[3px] border-black shadow-backDrop rounded-md">Delete</button>
+            <button id="dialog-pluss-two" class="p-2 box-border bg-accentGreen border-[3px] border-black shadow-backDrop rounded-md">+2</button>
+            <button id="dialog-dnf" class="p-2 box-border bg-accentGreen border-[3px] border-black shadow-backDrop rounded-md">DNF</button>
+        </div>
+    </dialog>
+
     <nav>
         <div>
             <h1 class="text-5xl font-black mb-0 inline-block">CUBIST</h1>
