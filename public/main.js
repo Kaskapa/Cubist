@@ -50,7 +50,7 @@ function newScramble(){
 }
 function canvasDrawer(){
     cube = scrambleCubeArray(moves, new Cube());
-    draw = new Draw(cube, canvas);
+    draw = new Draw(cube, canvas, 30, 100, 2 , 5, 10);
 
     draw.drawScramble();
 }

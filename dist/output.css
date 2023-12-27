@@ -654,6 +654,10 @@ video {
   max-height: 33.3rem;
 }
 
+.w-10\/12{
+  width: 83.333333%;
+}
+
 .w-\[40rem\]{
   width: 40rem;
 }
@@ -669,22 +673,6 @@ video {
 
 .w-full{
   width: 100%;
-}
-
-.w-10\/12{
-  width: 83.333333%;
-}
-
-.w-9\/12{
-  width: 75%;
-}
-
-.w-2{
-  width: 0.5rem;
-}
-
-.w-2\/12{
-  width: 16.666667%;
 }
 
 .min-w-\[30rem\]{

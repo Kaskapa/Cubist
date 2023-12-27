@@ -38,8 +38,13 @@ function startTimer () {
     timeMS = (timeMS - seconds) / 60;
     let mins = timeMS % 60;
 
-
-    document.getElementById("seconds").innerText = seconds;
+    if(seconds < 10 && seconds > 0){
+        document.getElementById("seconds").innerText = "0" + seconds;
+    }else if(seconds > 0){
+        document.getElementById("seconds").innerText = seconds;
+    }else{
+        document.getElementById("seconds").innerText = "00";
+    }
 
 
     if(mins > 0 && mins < 10){

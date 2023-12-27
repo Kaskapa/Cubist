@@ -43,9 +43,6 @@ export function pressRow(){
 
     Array.from(rows).forEach((row, index) => {
         row.addEventListener('click', () => {
-            if(index == 0){
-                return;
-            }
             let time = "DNF";
             let ao5 = "";
             let ao12 = "";
@@ -69,17 +66,65 @@ export function pressRow(){
     });
 }
 
-export function deleteRow(){
-    fileManager.deleteDataFromLocalStorage(localStorage.getItem("index"));
-    data = JSON.parse(localStorage.getItem('session')) || [];
-    popup.deleteBTN();
+function convertTimeStringToMilliseconds(timeString) {
+    if (typeof timeString !== 'string') {
+        throw new Error('Input must be a string' + timeString);
+    }
 
-    deleteAllRows();
-    fillTable();
+    const time = timeString.split(":");
+    let totalMilliseconds = 0;
+    if (time.length === 1) {
+        totalMilliseconds = time[0] * 1000;
+    } else if (time.length === 2) {
+        totalMilliseconds = time[0] * 60000 + time[1] * 1000;
+    } else if (time.length === 3) {
+        totalMilliseconds = time[0] * 3600000 + time[1] * 60000 + time[2] * 1000;
+    }
+
+    return totalMilliseconds;
+}
+
+function convertMililisecondsToTimeString(milliseconds) {
+    let timeMS = milliseconds;
+
+    let ms = timeMS % 1000;
+    timeMS = (timeMS - ms) / 1000;
+    let seconds = timeMS % 60;
+    timeMS = (timeMS - seconds) / 60;
+    let mins = timeMS % 60;
+
+    let timeString = "";
+
+    if(mins > 0 && mins < 10){
+        timeString += "0" + mins + ":";
+    }else if(mins > 0){
+        timeString += mins + ":";
+    }else{
+        timeString += "";
+    }
+
+    if(seconds < 10 && seconds > 0){
+        timeString += "0" + seconds + ".";
+    }else if(seconds > 0){
+        timeString += seconds+ ".";
+    }else{
+        timeString += "00.";
+    }
+
+    if(ms < 10 && ms > 0){
+        timeString += "00" + ms;
+    }
+    else if(ms < 100){
+        timeString += "0" + ms;
+    }else{
+        timeString += ms;
+    }
+
+    return timeString;
 }
 
 function calcAONum(index, aoIndex){
-    let ao = "";
+    let ao = 0;
     let arr = JSON.parse(localStorage.getItem('session')) || [];
 
     if(index >= aoIndex-1){
@@ -115,8 +160,8 @@ function calcAONum(index, aoIndex){
         }
 
         for(let i = index; i > index - aoIndex; i--){
-            let max = Number(arr[i].time);
-            if(arr[i].dnf && Number(arr[i].time) == 0){
+            let max = convertTimeStringToMilliseconds(arr[i].time + "");
+            if(arr[i].dnf && convertTimeStringToMilliseconds(arr[i].time + "") == 0){
                 dnfCount++;
                 max = 0;
             }else if(arr[i].dnf){
@@ -129,16 +174,17 @@ function calcAONum(index, aoIndex){
 
             aoNum += max;
         }
-        ao = (Math.round((aoNum/(aoIndex - (maxMin * 2))) * 1000) / 1000) + "";
+
+        ao = Math.round(Math.round((aoNum/(aoIndex - (maxMin * 2))) * 1000) / 1000);
     }
-    return ao;
+    return convertMililisecondsToTimeString(ao);
 }
 
 function dnfNum(arr, index, aoIndex){
-    let max = Number(arr[index].time);
+    let max = convertTimeStringToMilliseconds(arr[index].time);
     for(let i = index; i > index - aoIndex; i--){
-        if(max < Number(arr[i].time)){
-            max = Number(arr[i].time);
+        if(max < convertTimeStringToMilliseconds(arr[i].time + "")){
+            max = convertTimeStringToMilliseconds(arr[i].time + "");
         }
     }
     return max;
@@ -147,7 +193,7 @@ function dnfNum(arr, index, aoIndex){
 function removeMax(arr, index, aoIndex){
     let max = index;
     for(let i = index; i > index - aoIndex; i--){
-        if(Number(arr[max].time) < Number(arr[i].time) && Number(arr[i].time) != 0){
+        if(convertTimeStringToMilliseconds(arr[max].time + "") < convertTimeStringToMilliseconds(arr[i].time + "") && convertTimeStringToMilliseconds(arr[i].time + "") != 0){
             max = i;
         }
     }
@@ -158,7 +204,7 @@ function removeMax(arr, index, aoIndex){
 function removeMin(arr, index, aoIndex){
     let min = index;
     for(let i = index; i > index - aoIndex; i--){
-        if(Number(arr[min].time) > Number(arr[i].time) && !arr[i].dnf && Number(arr[i].time) != 0){
+        if(convertTimeStringToMilliseconds(arr[min].time + "") > convertTimeStringToMilliseconds(arr[i].time + "") && !arr[i].dnf && convertTimeStringToMilliseconds(arr[i].time + "") != 0){
             min = i;
         }
     }
@@ -202,10 +248,19 @@ export function dnfTable(){
 }
 
 function deleteAllRows(){
-    let table = document.getElementById("table");
-
-    let rowCount = table.rows.length;
-    for (let i = rowCount - 1; i > 0; i--) {
-        table.deleteRow(i);
+    const table = document.getElementById("tableBody");
+    while (table.firstChild) {
+        table.removeChild(table.firstChild);
     }
+}
+
+
+
+export function deleteRow(){
+    fileManager.deleteDataFromLocalStorage(localStorage.getItem("index"));
+    data = JSON.parse(localStorage.getItem('session')) || [];
+    popup.deleteBTN();
+
+    deleteAllRows();
+    fillTable();
 }
