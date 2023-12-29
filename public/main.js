@@ -2,6 +2,7 @@ import { createScrambleFromArray, generateScrambles } from "./scramble.js";
 import * as timerDesk from "./timerDesk.js";
 import * as timerPhone from "./timerPhone.js";
 import * as timer from "./timer.js";
+import * as comboBoxFunctions from "./comboBoxFunctionality.js";
 import { scrambleCubeArray } from "./scrambleCube.js";
 import { Cube } from "./rubiksCube.js";
 import { Draw } from "./draw.js";
@@ -9,6 +10,10 @@ import { saveDataToLocalStorage } from "./filePersistance.js";
 import * as table from "./table.js";
 
 const canvas = document.getElementById("myCanvas");
+
+if(localStorage.getItem("cb-puzzle") === null){
+    localStorage.setItem("cb-puzzle", "3x3");
+}
 
 let moves = generateScrambles(localStorage.getItem("cb-puzzle"));
 let scramble = createScrambleFromArray(moves);
@@ -55,6 +60,10 @@ export function init(){
     table.addRow();
     table.pressRow();
 
+    newScramble();
+    canvasDrawer();
+}
+export function initScrambleAndDraw(){
     newScramble();
     canvasDrawer();
 }

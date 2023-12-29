@@ -50,22 +50,22 @@
             border-right: 2px solid #000;
         }
 
-        .icon-seven{
+        .icon-7{
             background: url('../../assets/puzzle-icons/7x7.svg');
         }
-        .icon-six{
+        .icon-6{
             background: url('../../assets/puzzle-icons/6x6.svg');
         }
-        .icon-five{
+        .icon-5{
             background: url('../../assets/puzzle-icons/5x5.svg');
         }
-        .icon-four{
+        .icon-4{
             background: url('../../assets/puzzle-icons/4x4.svg');
         }
-        .icon-three{
+        .icon-3{
             background: url('../../assets/puzzle-icons/3x3.svg');
         }
-        .icon-two{
+        .icon-2{
             background: url('../../assets/puzzle-icons/2x2.svg');
         }
     }
