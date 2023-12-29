@@ -1,4 +1,4 @@
-import { createScrambleFromArray, generateScramble } from "./scramble.js";
+import { createScrambleFromArray, generateScrambles } from "./scramble.js";
 import * as timerDesk from "./timerDesk.js";
 import * as timerPhone from "./timerPhone.js";
 import * as timer from "./timer.js";
@@ -10,8 +10,7 @@ import * as table from "./table.js";
 
 const canvas = document.getElementById("myCanvas");
 
-let randomNumber = Math.floor(Math.random() * (25 - 20) ) + 20;
-let moves = generateScramble(randomNumber);
+let moves = generateScrambles(localStorage.getItem("cb-puzzle"));
 let scramble = createScrambleFromArray(moves);
 let cube = scrambleCubeArray(moves, new Cube());
 let draw = new Draw(cube, canvas, 30, 100, 2 , 5, 10);
@@ -27,24 +26,8 @@ table.pressRow();
 
 document.getElementById("scramble").innerText = scramble;
 
-document.addEventListener("keydown", timerDesk.timeEventHandler);
-document.addEventListener("keydown", function(){
-    if(timer.state.started){
-        init();
-    }
-})
-
-document.getElementById("timer").addEventListener("touchstart", timerPhone.timeEventHandler);
-document.getElementById("timer").addEventListener("touchstart", function(){
-    if(timer.state.started){
-        init();
-    }
-})
-
-
 function newScramble(){
-    randomNumber = Math.floor(Math.random() * (25 - 20) ) + 20;
-    moves = generateScramble(randomNumber);
+    moves = generateScrambles(localStorage.getItem("cb-puzzle"));
     scramble = createScrambleFromArray(moves);
     document.getElementById("scramble").innerText = scramble;
 }
@@ -61,12 +44,13 @@ function dataFill(){
         "cube": cube,
         "date": Date.now(),
         "plussTwo": false,
-        "dnf": false
+        "dnf": false,
+        "type": document.querySelector('#comboBox-puzzleSelect #puzzle-name').innerText
     };
 
     saveDataToLocalStorage(data);
 }
-function init(){
+export function init(){
     dataFill();
     table.addRow();
     table.pressRow();

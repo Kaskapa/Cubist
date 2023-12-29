@@ -1,47 +1,47 @@
-// 0 - White, 1 - Orange, 2 - Green, 3 - Red, 4 - Blue, 5 - Yellow 
+// 0 - White, 1 - Orange, 2 - Green, 3 - Red, 4 - Blue, 5 - Yellow
 
 export class Cube{
     constructor(){
-        this.cube = [ [ 
-        [ 0, 0, 0 ], 
-        [ 0, 0, 0 ], 
-        [ 0, 0, 0 ] 
+        this.cube = [ [
+        [ 0, 0, 0 ],
+        [ 0, 0, 0 ],
+        [ 0, 0, 0 ]
         ],
-        [ 
-        [ 1, 1, 1 ], 
-        [ 1, 1, 1 ], 
-        [ 1, 1, 1 ] 
+        [
+        [ 1, 1, 1 ],
+        [ 1, 1, 1 ],
+        [ 1, 1, 1 ]
         ],
-        [ 
-        [ 2, 2, 2 ], 
-        [ 2, 2, 2 ], 
-        [ 2, 2, 2 ] 
+        [
+        [ 2, 2, 2 ],
+        [ 2, 2, 2 ],
+        [ 2, 2, 2 ]
         ],
-        [ 
-        [ 3, 3, 3 ], 
-        [ 3, 3, 3 ], 
-        [ 3, 3, 3 ] 
+        [
+        [ 3, 3, 3 ],
+        [ 3, 3, 3 ],
+        [ 3, 3, 3 ]
         ],
-        [ 
-        [ 4, 4, 4 ], 
-        [ 4, 4, 4 ], 
-        [ 4, 4, 4 ] 
+        [
+        [ 4, 4, 4 ],
+        [ 4, 4, 4 ],
+        [ 4, 4, 4 ]
         ],
-        [ 
-        [ 5, 5, 5 ], 
-        [ 5, 5, 5 ], 
-        [ 5, 5, 5 ] 
+        [
+        [ 5, 5, 5 ],
+        [ 5, 5, 5 ],
+        [ 5, 5, 5 ]
     ] ];
 
     }
 
     rightTurn(){
         let temp = new Array(4);
-    
+
         for(let i = 0; i < 4; i++){
             temp[i] = new Array(3);
         }
-    
+
         for (let i = 0; i < 3; i++) {
             temp[0][i] = this.cube[5][i][2];// Yellow
             temp[1][i] = this.cube[2][i][2];// Green
@@ -54,35 +54,35 @@ export class Cube{
             this.cube[4][i][0] = temp[2][i];
             this.cube[5][i][2] = temp[3][i];
         }
-    
+
         temp = new Array(3);
-    
+
         for(let i = 0; i < 3; i++){
             temp[i] = new Array(3);
         }
-    
-    
-    
+
+
+
         for (let i = 0; i < 3; i++) {
             for (let j = 0; j < 3; j++) {
                 temp[i][j] = this.cube[3][i][j];
             }
         }
-    
+
         for (let i = 0; i < 3; i++) {
             for (let j = 0; j < 3; j++) {
                 this.cube[3][i][j] = temp[2 - j][i];
             }
         }
     }
-    
+
     leftTurn(){
         let temp = new Array(4);
-    
+
         for(let i = 0; i < 4; i++){
             temp[i] = new Array(3);
         }
-    
+
         for (let i = 0; i < 3; i++) {
             temp[0][i] = this.cube[5][2 - i][0];// Yellow
             temp[1][i] = this.cube[2][i][0];// Green
@@ -95,33 +95,33 @@ export class Cube{
             this.cube[4][i][2] = temp[0][i];
             this.cube[5][i][0] = temp[1][i];
         }
-    
+
         temp = new Array(3);
-    
+
         for(let i = 0; i < 3; i++){
             temp[i] = new Array(3);
         }
-    
+
         for (let i = 0; i < 3; i++) {
             for (let j = 0; j < 3; j++) {
                 temp[i][j] = this.cube[1][i][j];
             }
         }
-    
+
         for (let i = 0; i < 3; i++) {
             for (let j = 0; j < 3; j++) {
                 this.cube[1][i][j] = temp[2 - j][i];
             }
         }
     }
-    
+
     upTurn(){
         let temp = new Array(4);
-    
+
         for(let i = 0; i < 4; i++){
             temp[i] = new Array(3);
         }
-    
+
         for (let i = 0; i < 3; i++) {
             temp[0][i] = this.cube[1][0][i];// Orange
             temp[1][i] = this.cube[2][0][i];// Green
@@ -134,13 +134,13 @@ export class Cube{
             this.cube[3][0][i] = temp[3][i];
             this.cube[4][0][i] = temp[0][i];
         }
-    
+
         temp = new Array(3);
-    
+
         for(let i = 0; i < 3; i++){
             temp[i] = new Array(3);
         }
-    
+
         for (let i = 0; i < 3; i++) {
             for (let j = 0; j < 3; j++) {
                 temp[i][j] = this.cube[0][i][j];
@@ -152,14 +152,14 @@ export class Cube{
             }
         }
     }
-    
+
     downTurn(){
         let temp = new Array(4);
-    
+
         for(let i = 0; i < 4; i++){
             temp[i] = new Array(3);
         }
-    
+
         for (let i = 0; i < 3; i++) {
             temp[0][i] = this.cube[1][2][i];// Orange
             temp[1][i] = this.cube[2][2][i];// Green
@@ -172,13 +172,13 @@ export class Cube{
             this.cube[3][2][i] = temp[1][i];
             this.cube[4][2][i] = temp[2][i];
         }
-    
+
         temp = new Array(3);
-    
+
         for(let i = 0; i < 3; i++){
             temp[i] = new Array(3);
         }
-    
+
         for (let i = 0; i < 3; i++) {
             for (let j = 0; j < 3; j++) {
                 temp[i][j] = this.cube[5][i][j];
@@ -190,14 +190,14 @@ export class Cube{
             }
         }
     }
-    
+
     faceTurn(){
         let temp = new Array(4);
-    
+
         for(let i = 0; i < 4; i++){
             temp[i] = new Array(3);
         }
-    
+
         for (let i = 0; i < 3; i++) {
             temp[0][i] = this.cube[1][i][2];// Orange
             temp[1][i] = this.cube[0][2][i];// White
@@ -210,13 +210,13 @@ export class Cube{
             this.cube[3][i][0] = temp[1][i];
             this.cube[5][0][i] = temp[2][2 - i];
         }
-    
+
         temp = new Array(3);
-    
+
         for(let i = 0; i < 3; i++){
             temp[i] = new Array(3);
         }
-    
+
         for (let i = 0; i < 3; i++) {
             for (let j = 0; j < 3; j++) {
                 temp[i][j] = this.cube[2][i][j];
@@ -228,14 +228,14 @@ export class Cube{
             }
         }
     }
-    
+
     backTurn() {
         let temp = new Array(4);
-    
+
         for(let i = 0; i < 4; i++){
             temp[i] = new Array(3);
         }
-    
+
         for (let i = 0; i < 3; i++) {
             temp[0][i] = this.cube[1][i][0];// Orange
             temp[1][i] = this.cube[0][0][i];// White
@@ -248,13 +248,13 @@ export class Cube{
             this.cube[3][i][2] = temp[3][2 - i];
             this.cube[5][2][i] = temp[0][i];
         }
-    
+
         temp = new Array(3);
-    
+
         for(let i = 0; i < 3; i++){
             temp[i] = new Array(3);
         }
-    
+
         for (let i = 0; i < 3; i++) {
             for (let j = 0; j < 3; j++) {
                 temp[i][j] = this.cube[4][i][j];

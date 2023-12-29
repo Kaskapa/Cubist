@@ -1,4 +1,5 @@
 import { start, stop, state } from './timer.js';
+import { init } from './main.js';
 
 let timoutBeforeStart = 0;
 const desiredTime = 90;
@@ -9,7 +10,6 @@ export function timeEventHandler(){
     myInterval = setInterval(function(){
         if(timoutBeforeStart < desiredTime && state.spaceUp == 0){
             document.getElementById("timer").style.color = "orange";
-            console.log("Whut");
         }
         if(timoutBeforeStart == desiredTime){
             document.getElementById("timer").addEventListener("touchend", startHandler);
@@ -54,3 +54,10 @@ function stopHandler(){
         document.getElementById("timer").removeEventListener("touchstart", stopHandler);
     }
 }
+
+document.getElementById("timer").addEventListener("touchstart", timeEventHandler);
+document.getElementById("timer").addEventListener("touchstart", function(){
+    if(state.started){
+        init();
+    }
+})

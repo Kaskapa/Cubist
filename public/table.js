@@ -21,7 +21,6 @@ export function fillTable() {
         cell4.innerHTML = calcAONum(i, 12);
     }
 }
-
 export function addRow(){
     data = JSON.parse(localStorage.getItem('session')) || [];
     let table = document.getElementById("table");
@@ -36,7 +35,6 @@ export function addRow(){
     cell3.innerHTML = calcAONum(data.length-1, 5);
     cell4.innerHTML = calcAONum(data.length-1, 12);
 }
-
 export function pressRow(){
     let rows = document.getElementsByTagName("tr");
     data = JSON.parse(localStorage.getItem('session')) || [];
@@ -65,7 +63,6 @@ export function pressRow(){
         });
     });
 }
-
 function convertTimeStringToMilliseconds(timeString) {
     if (typeof timeString !== 'string') {
         throw new Error('Input must be a string' + timeString);
@@ -83,7 +80,6 @@ function convertTimeStringToMilliseconds(timeString) {
 
     return totalMilliseconds;
 }
-
 function convertMililisecondsToTimeString(milliseconds) {
     let timeMS = milliseconds;
 
@@ -122,7 +118,6 @@ function convertMililisecondsToTimeString(milliseconds) {
 
     return timeString;
 }
-
 function calcAONum(index, aoIndex){
     let ao = 0;
     let arr = JSON.parse(localStorage.getItem('session')) || [];
@@ -177,9 +172,11 @@ function calcAONum(index, aoIndex){
 
         ao = Math.round(Math.round((aoNum/(aoIndex - (maxMin * 2))) * 1000) / 1000);
     }
+    if(ao == 0){
+        return "";
+    }
     return convertMililisecondsToTimeString(ao);
 }
-
 function dnfNum(arr, index, aoIndex){
     let max = convertTimeStringToMilliseconds(arr[index].time);
     for(let i = index; i > index - aoIndex; i--){
@@ -189,7 +186,6 @@ function dnfNum(arr, index, aoIndex){
     }
     return max;
 }
-
 function removeMax(arr, index, aoIndex){
     let max = index;
     for(let i = index; i > index - aoIndex; i--){
@@ -200,7 +196,6 @@ function removeMax(arr, index, aoIndex){
     arr[max].time = 0;
     return arr;
 }
-
 function removeMin(arr, index, aoIndex){
     let min = index;
     for(let i = index; i > index - aoIndex; i--){
@@ -211,7 +206,6 @@ function removeMin(arr, index, aoIndex){
     arr[min].time = 0;
     return arr;
 }
-
 export function plussTwoTable(){
     fileManager.plussTwoFileManager(localStorage.getItem("index"));
 
@@ -226,7 +220,6 @@ export function plussTwoTable(){
     deleteAllRows();
     fillTable();
 }
-
 export function dnfTable(){
     fileManager.dnfFileManager(localStorage.getItem("index"));
     data = JSON.parse(localStorage.getItem('session')) || [];
@@ -246,16 +239,12 @@ export function dnfTable(){
     deleteAllRows();
     fillTable();
 }
-
 function deleteAllRows(){
     const table = document.getElementById("tableBody");
     while (table.firstChild) {
         table.removeChild(table.firstChild);
     }
 }
-
-
-
 export function deleteRow(){
     fileManager.deleteDataFromLocalStorage(localStorage.getItem("index"));
     data = JSON.parse(localStorage.getItem('session')) || [];

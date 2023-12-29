@@ -1,4 +1,5 @@
 import { start, stop, state } from './timer.js';
+import { init } from './main.js';
 
 let timoutBeforeStart = 0;
 const desiredTime = 1;
@@ -54,3 +55,10 @@ function stopHandler(){
         document.removeEventListener("keydown", stopHandler);
     }
 }
+
+document.addEventListener("keydown", timeEventHandler);
+document.addEventListener("keydown", function(){
+    if(state.started){
+        init();
+    }
+})
