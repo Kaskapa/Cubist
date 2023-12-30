@@ -18,7 +18,7 @@ if(localStorage.getItem("cb-puzzle") === null){
 let moves = generateScrambles(localStorage.getItem("cb-puzzle"));
 let scramble = createScrambleFromArray(moves);
 let cube = scrambleCubeArray(moves, new Cube());
-let draw = new Draw(cube, canvas, 20, 100, 2 , 5, 10);
+let draw = new Draw(cube, canvas, 23, 100, 2 , 5, 10);
 
 let heightRatio = 1;
 let widthRatio = 1.3;
@@ -38,7 +38,7 @@ function newScramble(){
 }
 function canvasDrawer(){
     cube = scrambleCubeArray(moves, new Cube());
-    draw = new Draw(cube, canvas, 20, 100, 2 , 5, 10);
+    draw = new Draw(cube, canvas, 23, 100, 2 , 5, 10);
 
     draw.drawScramble();
 }
