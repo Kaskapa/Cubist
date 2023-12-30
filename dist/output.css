@@ -888,6 +888,11 @@ video {
   padding-bottom: 0.25rem;
 }
 
+.py-2{
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
 .py-3{
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
@@ -896,11 +901,6 @@ video {
 .py-5{
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
-}
-
-.py-2{
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
 }
 
 .pt-4{
@@ -1041,27 +1041,27 @@ td:last-child {
 }
 
 .icon-7{
-  background: url('../../assets/puzzle-icons/7x7.svg');
+  background: url('../assets/puzzle-icons/7x7.svg');
 }
 
 .icon-6{
-  background: url('../../assets/puzzle-icons/6x6.svg');
+  background: url('../assets/puzzle-icons/6x6.svg');
 }
 
 .icon-5{
-  background: url('../../assets/puzzle-icons/5x5.svg');
+  background: url('../assets/puzzle-icons/5x5.svg');
 }
 
 .icon-4{
-  background: url('../../assets/puzzle-icons/4x4.svg');
+  background: url('../assets/puzzle-icons/4x4.svg');
 }
 
 .icon-3{
-  background: url('../../assets/puzzle-icons/3x3.svg');
+  background: url('../assets/puzzle-icons/3x3.svg');
 }
 
 .icon-2{
-  background: url('../../assets/puzzle-icons/2x2.svg');
+  background: url('../assets/puzzle-icons/2x2.svg');
 }
 
 .hover\:bg-comboBoxBlueHover:hover{

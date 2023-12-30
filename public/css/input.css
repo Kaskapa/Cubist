@@ -51,22 +51,22 @@
         }
 
         .icon-7{
-            background: url('../../assets/puzzle-icons/7x7.svg');
+            background: url('../assets/puzzle-icons/7x7.svg');
         }
         .icon-6{
-            background: url('../../assets/puzzle-icons/6x6.svg');
+            background: url('../assets/puzzle-icons/6x6.svg');
         }
         .icon-5{
-            background: url('../../assets/puzzle-icons/5x5.svg');
+            background: url('../assets/puzzle-icons/5x5.svg');
         }
         .icon-4{
-            background: url('../../assets/puzzle-icons/4x4.svg');
+            background: url('../assets/puzzle-icons/4x4.svg');
         }
         .icon-3{
-            background: url('../../assets/puzzle-icons/3x3.svg');
+            background: url('../assets/puzzle-icons/3x3.svg');
         }
         .icon-2{
-            background: url('../../assets/puzzle-icons/2x2.svg');
+            background: url('../assets/puzzle-icons/2x2.svg');
         }
     }
 }
