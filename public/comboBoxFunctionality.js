@@ -30,26 +30,7 @@ function comboBoxOnOff(){
 }
 
 window.onload = function(){
-    switch(localStorage.getItem("cb-puzzle")){
-        case "2x2":
-            nxn(2);
-            break;
-        case "3x3":
-            nxn(3);
-            break;
-        case "4x4":
-            nxn(4);
-            break;
-        case "5x5":
-            nxn(5);
-            break;
-        case "6x6":
-            nxn(6);
-            break;
-        case "7x7":
-            nxn(7);
-            break;
-    }
+    nxn(parseInt(localStorage.getItem("cb-puzzle-size")));
     let aTags = document.querySelectorAll('#options a');
 
     Array.from(aTags).forEach((element, index) => {
@@ -63,7 +44,7 @@ function nxn(n){
     document.querySelector('#comboBox-puzzleSelect span').className = `icon-${n}`;
     document.querySelector('#comboBox-puzzleSelect #puzzle-name').innerText = `${n}x${n}`;
     options.style.display = "none";
-    localStorage.setItem("cb-puzzle", `${n}x${n}`);
+    localStorage.setItem("cb-puzzle-size", n);
     initScrambleAndDraw();
     enabled = false;
 }

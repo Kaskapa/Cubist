@@ -11,30 +11,8 @@ export class Draw{
         this.cube = cube;
         this.canvas = canvas;
         this.ctx = canvas.getContext("2d");
-        // this.sizeString = localStorage.getItem("cb-puzzle");
-
-        this.size = 4;
-
-        // switch(this.sizeString){
-        //     case "2x2":
-        //         this.size = 2;
-        //     break;
-        //     case "3x3":
-        //         this.size = 3;
-        //     break;
-        //     case "4x4":
-        //         this.size = 4;
-        //     break;
-        //     case "5x5":
-        //         this.size = 5;
-        //     break;
-        //     case "6x6":
-        //         this.size = 6;
-        //     break;
-        //     case "7x7":
-        //         this.size = 7;
-        //     break;
-        // }
+        this.ctx.clearRect(0, 0, canvas.width, canvas.height);
+        this.size = parseInt(localStorage.getItem("cb-puzzle-size"));
     }
     drawLeft(){
         this.ctx.beginPath();

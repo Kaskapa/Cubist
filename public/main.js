@@ -11,34 +11,32 @@ import * as table from "./table.js";
 
 const canvas = document.getElementById("myCanvas");
 
-if(localStorage.getItem("cb-puzzle") === null){
-    localStorage.setItem("cb-puzzle", "3x3");
+if(localStorage.getItem("cb-puzzle-size") === null){
+    localStorage.setItem("cb-puzzle-size", parseInt(3));
 }
 
-let moves = generateScrambles(localStorage.getItem("cb-puzzle"));
+let moves = generateScrambles(parseInt(localStorage.getItem("cb-puzzle-size")));
+
 let scramble = createScrambleFromArray(moves);
 let cube = scrambleCubeArray(moves, new Cube());
-let draw = new Draw(cube, canvas, 23, 100, 2 , 5, 10);
+let draw = new Draw(cube, canvas, 15, 100, 2 , 5, 10);
 
 let heightRatio = 1;
 let widthRatio = 1.3;
 canvas.height = canvas.width * heightRatio;
 canvas.width = canvas.width * widthRatio;
 
-draw.drawScramble();
 table.fillTable();
 table.pressRow();
 
-document.getElementById("scramble").innerText = scramble;
-
 function newScramble(){
-    moves = generateScrambles(localStorage.getItem("cb-puzzle"));
+    moves = generateScrambles(parseInt(localStorage.getItem("cb-puzzle-size")));
     scramble = createScrambleFromArray(moves);
     document.getElementById("scramble").innerText = scramble;
 }
 function canvasDrawer(){
     cube = scrambleCubeArray(moves, new Cube());
-    draw = new Draw(cube, canvas, 23, 100, 2 , 5, 10);
+    draw = new Draw(cube, canvas, 15, 100, 2 , 5, 10);
 
     draw.drawScramble();
 }
