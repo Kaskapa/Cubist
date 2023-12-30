@@ -11,7 +11,7 @@ function closeCB(){
     }
 }
 
-button.onclick = function(){
+button.onclick = function(e){
     comboBoxOnOff();
 }
 
