@@ -2,7 +2,7 @@ import { Cube } from "./rubiksCube.js";
 const colors = ["white", "orange", "green", "red", "blue", "yellow"];
 
 export class Draw{
-    constructor(cube = new Cube, canvas, cubeSize, placement, radius, x, y){
+    constructor(cube = new Cube, canvas, cubeSize, placement, radius, x, y, lineWidth, size){
         this.radius = radius;
         this.x = x;
         this.y = y;
@@ -12,14 +12,15 @@ export class Draw{
         this.canvas = canvas;
         this.ctx = canvas.getContext("2d");
         this.ctx.clearRect(0, 0, canvas.width, canvas.height);
-        this.size = parseInt(localStorage.getItem("cb-puzzle-size"));
+        this.size = size;
+        this.lineWidth = lineWidth
     }
     drawLeft(){
         this.ctx.beginPath();
         for(let i = 0; i < this.size; i++){
             for(let j = 0; j < this.size; j++){
                 this.ctx.strokeStyle = "rgb(0,0,0)"
-                this.ctx.lineWidth = 2;
+                this.ctx.lineWidth = this.lineWidth;
                 this.ctx.fillStyle = colors[this.cube.cube[1][i][j]];
                 this.ctx.fillRect(this.x + (this.cubeSize * j), this.y + this.placement + (this.cubeSize * i), this.cubeSize, this.cubeSize);
                 this.ctx.roundRect(this.x + (this.cubeSize * j), this.y + this.placement + (this.cubeSize * i), this.cubeSize, this.cubeSize, this.radius);

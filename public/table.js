@@ -59,7 +59,7 @@ export function pressRow(){
 
             localStorage.setItem("index", table.rows.length - index - 1);
 
-            popup.openDialog(scramble, time, cube, ao5, ao12, today);
+            popup.openDialog(scramble, time, cube, ao5, ao12, today, data[table.rows.length - index - 1].type);
         });
     });
 }

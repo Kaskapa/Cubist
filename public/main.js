@@ -10,16 +10,14 @@ import { saveDataToLocalStorage } from "./filePersistance.js";
 import * as table from "./table.js";
 
 const canvas = document.getElementById("myCanvas");
+let moves;
+let scramble;
+let cube;
+let draw;
 
 if(localStorage.getItem("cb-puzzle-size") === null){
     localStorage.setItem("cb-puzzle-size", parseInt(3));
 }
-
-let moves = generateScrambles(parseInt(localStorage.getItem("cb-puzzle-size")));
-
-let scramble = createScrambleFromArray(moves);
-let cube = scrambleCubeArray(moves, new Cube());
-let draw = new Draw(cube, canvas, 15, 100, 2 , 5, 10);
 
 let heightRatio = 1;
 let widthRatio = 1.3;
@@ -36,7 +34,18 @@ function newScramble(){
 }
 function canvasDrawer(){
     cube = scrambleCubeArray(moves, new Cube());
-    draw = new Draw(cube, canvas, 15, 100, 2 , 5, 10);
+    const sizeMap = {
+        "2": 42,
+        "3": 30,
+        "4": 22,
+        "5": 18,
+        "6": 15,
+        "7": 13
+    };
+
+    var cubeSize = sizeMap[localStorage.getItem("cb-puzzle-size")];
+
+    draw = new Draw(cube, canvas, cubeSize, 100, 1 , 5, 10, 2, parseInt(localStorage.getItem("cb-puzzle-size")));
 
     draw.drawScramble();
 }
@@ -48,7 +57,7 @@ function dataFill(){
         "date": Date.now(),
         "plussTwo": false,
         "dnf": false,
-        "type": document.querySelector('#comboBox-puzzleSelect #puzzle-name').innerText
+        "type": parseInt(localStorage.getItem("cb-puzzle-size"))
     };
 
     saveDataToLocalStorage(data);

@@ -9,7 +9,7 @@ let ao5DOM = document.getElementById("dialog-ao5-time");
 let ao12DOM = document.getElementById("dialog-ao12-time");
 let dateDOM = document.getElementById("dialog-date");
 
-export function openDialog(scramble, time, cube, ao5, ao12, date){
+export function openDialog(scramble, time, cube, ao5, ao12, date, type){
     scrambleDOM.innerText = scramble;
     timerDOM.innerText = time;
     ao5DOM.innerText = ao5;
@@ -31,7 +31,7 @@ export function openDialog(scramble, time, cube, ao5, ao12, date){
         document.getElementById("dialog-dnf").style.backgroundColor = "#90EE90";
     }
 
-    let draw = new Draw(cube, canvasDOM, 20, 65, 1, 5, 5);
+    let draw = new Draw(cube, canvasDOM, 20, 65, 1, 5, 5, 2, parseInt(type));
 
     draw.drawScramble();
 
