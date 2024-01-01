@@ -32,7 +32,7 @@
         }
     </style>
 </head>
-<body class="p-5 bg-gradient-to-r from-yellow-50 to-pink-50 flex flex-col h-full font-LexendMega overflow-hidden box-border select-none">
+<body class="p-1 sm:p-3 lg:p-5 bg-gradient-to-r from-yellow-50 to-pink-50 flex flex-col h-full font-LexendMega overflow-hidden box-border select-none">
 
     <dialog id="dialog" data-role="dialog" class="border-[3px] border-black shadow-backDrop rounded-lg w-[40rem] ">
         <header id="dialog-header" class="flex justify-between p-3">
@@ -75,14 +75,14 @@
 
     <nav>
         <div>
-            <h1 class="text-5xl font-black mb-0 inline-block">CUBIST</h1>
-            <h2 class="inline-block font-black m-0 -ml-4">Alpha</h2>
+            <h1 class="lg:text-5xl sm:text-3xl text-2xl font-black mb-0 inline-block">CUBIST</h1>
+            <h2 class="lg:text-xl sm:text-sm text-xs inline-block font-black m-0 -ml-3">Alpha</h2>
         </div>
     </nav>
     <main class="h-full flex flex-col bg-main bg-center bg-[linear-gradient(to_right,#ffffff33_1px,transparent_1px),linear-gradient(to_bottom,#ffffff33_1px,transparent_1px)] bg-[size:40px_40px] border-black border-4 rounded-lg">
         <div class="flex flex-col items-center">
-            <h1 id="scramble" class="bg-accentAqua text-3xl font-bold px-3 py-2 border-[3px] rounded-md border-black shadow-backDrop mt-6 select-text mx-12 text-center max-h-24"></h1>
-            <h1 id="timer" class="bg-accentGreen text-8xl align-baseline font-bold pt-4 px-10 py-1 border-[3px] border-black shadow-backDrop rounded-md my-12 font-CourierPrime">
+            <h1 id="scramble" class="bg-accentAqua text-xs sm:text-lg md:text-xl lg:text-3xl font-bold px-1 lg:px-3 py-2 border-[3px] rounded-md border-black shadow-backDrop mt-6 select-text mx-2 sm:mx-4 md:mx-6 lg:mx-12 text-center max-h-24"></h1>
+            <h1 id="timer" class="bg-accentGreen text-4xl sm:text-6xl lg:text-8xl align-baseline font-bold pt-3 sm:pt-4 px-3 sm:px-4 lg:px-10 py-1 border-[3px] border-black shadow-backDrop rounded-md my-12 font-CourierPrime">
                 <span id="minutes"></span><span id="seconds">00</span>.<span id="tens">000</span>
             </h1>
         </div>
@@ -101,7 +101,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="bg-white border-black border-4 shadow-backDrop rounded-lg min-w-[31rem] flex flex-col">
+            <div class="bg-white border-black border-4 shadow-backDrop rounded-lg flex flex-col">
                 <h2 class="bg-accentAqua -m-1 py-3 px-5 font-bold box-border text-3xl border-4 border-black rounded-t-lg">Scramble</h2>
 
                 <div class="flex flex-col box-border p-[3%] h-full">
