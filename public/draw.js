@@ -1,6 +1,13 @@
 import { Cube } from "./rubiksCube.js";
 const colors = ["white", "orange", "green", "red", "blue", "yellow"];
 
+const canvas = document.getElementById("myCanvas");
+
+let heightRatio = 1;
+let widthRatio = 1.3;
+canvas.height = canvas.width * heightRatio;
+canvas.width = canvas.width * widthRatio;
+
 export class Draw{
     constructor(cube = new Cube, canvas, cubeSize, placement, radius, x, y, lineWidth, size){
         this.radius = radius;

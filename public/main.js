@@ -10,19 +10,11 @@ import { saveDataToLocalStorage } from "./filePersistance.js";
 import * as table from "./table.js";
 
 const canvas = document.getElementById("myCanvas");
-let moves;
-let scramble;
-let cube;
-let draw;
+let moves, scramble, cube, draw;
 
 if(localStorage.getItem("cb-puzzle-size") === null){
     localStorage.setItem("cb-puzzle-size", parseInt(3));
 }
-
-let heightRatio = 1;
-let widthRatio = 1.3;
-canvas.height = canvas.width * heightRatio;
-canvas.width = canvas.width * widthRatio;
 
 table.fillTable();
 table.pressRow();
