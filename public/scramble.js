@@ -54,6 +54,7 @@ function generateScramble(count, notations, reverseNotations){
                 while(i > 1 && move === reverseNotations[whichTurn][whichMove] && (reverseNotations[whichTurn][whichMove] === moves[moves.length - 2].charAt(0) + "" || reverseNotations[whichTurn][whichMoveRev] === moves[moves.length - 1].charAt(0) + "")){
                     randomNum = Math.floor(Math.random() * notations.length);
                     move = notations[randomNum];
+                    j=0;
                 }
             }else if(reverseNotations[j][1] === move){
                 whichTurn = j;
@@ -63,6 +64,7 @@ function generateScramble(count, notations, reverseNotations){
                 while(i > 1 && move === reverseNotations[whichTurn][whichMove] && (reverseNotations[whichTurn][whichMove] === moves[moves.length - 2].charAt(0) + "" || reverseNotations[whichTurn][whichMoveRev] === moves[moves.length - 1].charAt(0) + "")){
                     randomNum = Math.floor(Math.random() * notations.length);
                     move = notations[randomNum];
+                    j=0;
                 }
             }
         }
