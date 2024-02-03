@@ -19,30 +19,30 @@
                     <h2 class="lg:text-xl sm:text-sm text-xs inline-block font-black m-0 -ml-3">Alpha</h2>
                 </div>
             </nav>
-            <form class="bg-accentYellow border-[3px] border-black shadow-backDrop px-10 py-5 rounded-lg flex flex-row justify-between max-w-4xl">
+            <form action="../public/index.html" id="form" class="bg-accentYellow border-[3px] border-black shadow-backDrop px-10 py-5 rounded-lg flex flex-row justify-between max-w-4xl">
                 <div class="box-border mt-7 w-6/12">
-                    <div class="flex flex-row">
+                    <div class="step flex flex-row">
                         <i class="fa-regular fa-circle-check text-5xl mr-4"></i>
                         <div>
                             <h2 class="text-3xl mb-3">Your details</h2>
                             <p class="text-sm">Please provide your username and your e-mail</p>
                         </div>
                     </div>
-                    <div class="flex flex-row mt-10 text-slate-700">
+                    <div class="step flex flex-row mt-10 text-slate-700">
                         <i class="fa-regular fa-circle-check text-5xl mr-4"></i>
                         <div>
                             <h2 class="text-3xl mb-3">Verify e-mail</h2>
                             <p class="text-sm">Enter the code you received in your e-mail</p>
                         </div>
                     </div>
-                    <div class="flex flex-row mt-10 text-slate-700">
+                    <div class="step flex flex-row mt-10 text-slate-700">
                         <i class="fa-regular fa-circle-check text-5xl mr-4"></i>
                         <div>
                             <h2 class="text-3xl mb-3">Choose a password</h2>
                             <p class="text-sm">Enter a password that is atleast 8 characters</p>
                         </div>
                     </div>
-                    <div class="flex flex-row mt-10 text-slate-700">
+                    <div class="step flex flex-row mt-10 text-slate-700">
                         <i class="fa-regular fa-circle-check text-5xl mr-4"></i>
                         <div>
                             <h2 class="text-3xl mb-3">Start cubing</h2>
@@ -51,11 +51,17 @@
                     </div>
                 </div>
                 <div class="flex flex-col justify-center w-6/12">
-                    <div class="">
+                    <div id="step-one-container" class="">
                         <h1 class="text-5xl font-bold text-center mb-14">Your details</h1>
                         <div class="flex flex-col items-center">
-                            <input type="text" name="username" placeholder="Username" class="w-10/12 p-2 m-2 border-2 border-black rounded-md shadow-backDrop" required>
-                            <input type="email" name="email" placeholder="E-mail" class="w-10/12 p-2 m-2 border-2 border-black rounded-md shadow-backDrop" required>
+                            <div class="w-full text-center">
+                                <p id="username-error" class="error text-left mx-8 mb-0 text-sm text-red-700 font-bold"></p>
+                                <input id="username-input" type="text" name="username" placeholder="Username" class="outline-none w-10/12 p-2 m-2 mt-0 mb-4 border-2 border-black rounded-md shadow-backDrop">
+                            </div>
+                            <div class="w-full text-center">
+                                <p id="email-error" class="error text-left mx-8 mb-0 text-sm text-red-700 font-bold"></p>
+                                <input id="email-input" type="email" name="email" placeholder="E-mail" class="outline-none w-10/12 p-2 m-2 mt-0 border-2 border-black rounded-md shadow-backDrop">
+                            </div>
                         </div>
 
                         <h2 class="w-10/12 text-center border-b-2 border-b-black leading-[0.2rem] mt-3 mb-6 mx-auto"><span class="bg-accentYellow px-2 py-0">OR</span></h2>
@@ -67,32 +73,33 @@
                             <button class="bg-accentGreen text-3xl p-1 px-2 border-2 border-black shadow-backDrop"><i class="fa-brands fa-microsoft"></i></button>
                         </div>
                     </div>
-                    <div class="hidden">
+                    <div id="step-two-container" class="hidden">
                         <h1 class="text-7xl font-bold text-center mb-14">Verify e-mail</h1>
                         <div action="" method="post" class="flex flex-row justify-center">
-                            <input type="text" name="verify-email" class="w-16 h-16 p-2 m-2 border-2 border-black rounded-md shadow-backDrop text-4xl text-center outline-none" maxlength="1" required>
-                            <input type="text" name="verify-email" class="w-16 h-16 p-2 m-2 border-2 border-black rounded-md shadow-backDrop text-4xl text-center outline-none" maxlength="1" required>
-                            <input type="text" name="verify-email" class="w-16 h-16 p-2 m-2 border-2 border-black rounded-md shadow-backDrop text-4xl text-center outline-none" maxlength="1" required>
-                            <input type="text" name="verify-email" class="w-16 h-16 p-2 m-2 border-2 border-black rounded-md shadow-backDrop text-4xl text-center outline-none" maxlength="1" required>
+                            <input type="text" name="verify-email" class="w-16 h-16 p-2 m-2 border-2 border-black rounded-md shadow-backDrop text-4xl text-center outline-none" maxlength="1">
+                            <input type="text" name="verify-email" class="w-16 h-16 p-2 m-2 border-2 border-black rounded-md shadow-backDrop text-4xl text-center outline-none" maxlength="1">
+                            <input type="text" name="verify-email" class="w-16 h-16 p-2 m-2 border-2 border-black rounded-md shadow-backDrop text-4xl text-center outline-none" maxlength="1">
+                            <input type="text" name="verify-email" class="w-16 h-16 p-2 m-2 border-2 border-black rounded-md shadow-backDrop text-4xl text-center outline-none" maxlength="1">
                         </div>
                     </div>
-                    <div class="hidden">
+                    <div id="step-three-container" class="hidden">
                         <h1 class="text-5xl font-bold text-center mb-14">Choose a password</h1>
                         <div action="" method="post" class="flex flex-col items-center">
-                            <input type="password" name="password" placeholder="Password" class="w-10/12 p-2 m-2 border-2 border-black rounded-md shadow-backDrop" required>
-                            <input type="password" name="confirm-password" placeholder="Confirm password" class="w-10/12 p-2 m-2 border-2 border-black rounded-md shadow-backDrop" required>
+                            <input id="password-input" type="password" name="password" placeholder="Password" class="outline-none w-10/12 p-2 m-2 border-2 border-black rounded-md shadow-backDrop">
+                            <input id="confirm-password-input" type="password" name="confirm-password" placeholder="Confirm password" class="outline-none w-10/12 p-2 m-2 border-2 border-black rounded-md shadow-backDrop">
                         </div>
                     </div>
-                    <div class="hidden">
+                    <div id="step-four-container" class="hidden">
                         <h1 class="text-6xl font-bold text-center mb-7">Start cubing!</h1>
                     </div>
-                    <input type="button" value="Next" class="w-10/12 p-2 m-8 border-2 border-black rounded-md shadow-backDrop bg-accentAqua font-bold cursor-pointer">
-                    <input type="submit" value="Finish" class="w-10/12 p-2 m-8 border-2 border-black rounded-md shadow-backDrop bg-accentAqua font-bold cursor-pointer hidden">
+                    <input type="button" id="next-btn" value="Next" class="w-10/12 p-2 m-8 border-2 border-black rounded-md shadow-backDrop bg-accentAqua font-bold cursor-pointer">
+                    <input type="submit" id="finish-btn" value="Finish" class="w-10/12 p-2 m-8 border-2 border-black rounded-md shadow-backDrop bg-accentAqua font-bold cursor-pointer hidden">
                     <p class="text-sm text-center">Already have an account? <a href="#" class="underline text-slate-600">Log in</a></p>
 
                 </div>
             </form>
         </div>
     </div>
+    <script src="source/firebase.js" type="module"></script>
 </body>
 </html>
