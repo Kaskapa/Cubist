@@ -19,7 +19,7 @@ export class Cube{
         for(let i = 0; i < this.cube.length; i++){
             for(let j = 0; j < this.cube[i].length; j++){
                 for(let k = 0; k < this.cube[i][j].length; k++){
-                    this.cube[i][j][k] = i;
+                    this.cube[i][j][k] = i+1;
                 }
             }
         }

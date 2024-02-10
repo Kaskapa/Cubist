@@ -65,16 +65,18 @@ export function init(){
 
 let data = [];
 
-for (let i = 0; i < 1000; i++) {
-    initScrambleAndDraw();
+for(let j = 0; j < 100; j++){
+    for (let i = 0; i < 1_000; i++) {
+        initScrambleAndDraw();
 
-    data.push(
-        [
-            scramble,
-            cube.cube.map(e => e.map(r => r.join(":")).join(" ")).join("|")
-        ]
-    )
-    
+        data.push(
+            [
+                scramble,
+                cube.cube.map(e => e.map(r => r.join("")).join(" ")).join("|")
+            ]
+        )
+
+    }
 }
 
 let csvContent = ''
