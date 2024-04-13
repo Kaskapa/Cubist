@@ -7,7 +7,6 @@
     <title>Cubist</title>
 
     <script type="module" defer src="main.js"></script>
-    <script type="module" defer src="navigation.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,25 +52,33 @@
           }
     </style>
 </head>
-<div data-tauri-drag-region class="titlebar">
-    <div class="titlebar-button" id="titlebar-minimize">
-      <img
-        src="https://api.iconify.design/mdi:window-minimize.svg"
-        alt="minimize"
-      />
-    </div>
-    <div class="titlebar-button" id="titlebar-maximize">
-      <img
-        src="https://api.iconify.design/mdi:window-maximize.svg"
-        alt="maximize"
-      />
-    </div>
-    <div class="titlebar-button" id="titlebar-close">
-      <img src="https://api.iconify.design/mdi:close.svg" alt="close" />
-    </div>
-</div>
-<body class="p-1 sm:p-3 lg:p-5 bg-gradient-to-r from-yellow-50 to-pink-50 flex flex-col h-full font-LexendMega overflow-hidden box-border select-none">
 
+<body class="p-1 sm:p-3 lg:p-5 bg-gradient-to-r from-yellow-50 to-pink-50 flex flex-col h-full font-LexendMega overflow-hidden box-border select-none">
+    <script type="module">
+        import { appWindow } from '@tauri-apps/api/window';
+
+        document.getElementById('titlebar-minimize').addEventListener('click', () => appWindow.minimize());
+        document.getElementById('titlebar-maximize').addEventListener('click', () => appWindow.toggleMaximize());
+        document.getElementById('titlebar-close').addEventListener('click', () => appWindow.close());
+
+    </script>
+    <div data-tauri-drag-region class="titlebar">
+        <div class="titlebar-button" id="titlebar-minimize">
+          <img
+            src="https://api.iconify.design/mdi:window-minimize.svg"
+            alt="minimize"
+          />
+        </div>
+        <div class="titlebar-button" id="titlebar-maximize">
+          <img
+            src="https://api.iconify.design/mdi:window-maximize.svg"
+            alt="maximize"
+          />
+        </div>
+        <div class="titlebar-button" id="titlebar-close">
+          <img src="https://api.iconify.design/mdi:close.svg" alt="close" />
+        </div>
+    </div>
     <dialog id="dialog" data-role="dialog" class="border-[3px] border-black shadow-backDrop rounded-lg w-[40rem] ">
         <header id="dialog-header" class="flex justify-between p-3">
             <p id="dialog-date" class="text-xs"></p>
