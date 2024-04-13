@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" class="h-screen">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../dist/output.css" rel="stylesheet">
+    <title>Cubist</title>
+
+    <script type="module" defer src="main.js"></script>
+    <script type="module" defer src="navigation.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Mega:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/9d6976f155.js" crossorigin="anonymous"></script>
+
+
+    <style>
+        main button span{
+            margin-right: 0.8rem;
+            height: 33px;
+            width: 33px;
+            background-size: contain;
+        }
+        main #options span{
+            margin-right: 0.5rem;
+            height: 34px;
+            width: 34px;
+            background-size: contain;
+        }
+        dialog::backdrop {
+            background-color: rgba(0, 0, 0, 0.438);
+        }
+        .titlebar {
+            height: 30px;
+            user-select: none;
+            display: flex;
+            justify-content: flex-end;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+          }
+          .titlebar-button {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            height: 30px;
+          }
+          .titlebar-button:hover {
+            background: #636363;
+          }
+    </style>
+</head>
+<div data-tauri-drag-region class="titlebar">
+    <div class="titlebar-button" id="titlebar-minimize">
+      <img
+        src="https://api.iconify.design/mdi:window-minimize.svg"
+        alt="minimize"
+      />
+    </div>
+    <div class="titlebar-button" id="titlebar-maximize">
+      <img
+        src="https://api.iconify.design/mdi:window-maximize.svg"
+        alt="maximize"
+      />
+    </div>
+    <div class="titlebar-button" id="titlebar-close">
+      <img src="https://api.iconify.design/mdi:close.svg" alt="close" />
+    </div>
+</div>
+<body class="p-1 sm:p-3 lg:p-5 bg-gradient-to-r from-yellow-50 to-pink-50 flex flex-col h-full font-LexendMega overflow-hidden box-border select-none">
+
+    <dialog id="dialog" data-role="dialog" class="border-[3px] border-black shadow-backDrop rounded-lg w-[40rem] ">
+        <header id="dialog-header" class="flex justify-between p-3">
+            <p id="dialog-date" class="text-xs"></p>
+            <button id="dialog-close" class="text-sm">x</button>
+        </header>
+
+        <h1 id="dialog-scramble" class="bg-[#FFF500] mx-auto max-w-xl text-center font-bold text-2xl border-black border-[3px] shadow-backDrop rounded-lg p-4 mb-8"></h1>
+
+        <div class="mx-auto w-fit my-12">
+            <div id="dialog-ao5" class="inline-block align-bottom">
+                <h4 id="dialog-ao5-title">AO5</h4>
+                <div id="dialog-ao5-container" class="bg-[#70B1FC] border-[3px] border-black rounded-lg shadow-backDrop px-6 text-xl py-3 font-semibold">
+                    <h2 id="dialog-ao5-time"></h2>
+                </div>
+            </div>
+            <div id="dialog-time" class="inline-block align-bottom">
+                <h4 id="dialog-time-title">Title</h4>
+                <div id="dialog-time-container" class="bg-[#70B1FC] border-[3px] border-black rounded-lg shadow-backDrop px-6 text-4xl py-5 font-semibold">
+                    <h1 id="dialog-timer"></h1>
+                </div>
+            </div>
+
+            <div id="dialog-ao12" class="inline-block align-bottom">
+                <h4 id="dialog-ao12-title">AO12</h4>
+                <div id="dialog-ao12-container" class="bg-[#70B1FC] border-[3px] border-black rounded-lg shadow-backDrop px-6 text-xl py-3 font-semibold">
+                    <h2 id="dialog-ao12-time"></h2>
+                </div>
+            </div>
+        </div>
+
+        <canvas id="dialog-canvas" class="box-border mx-auto border-[3px] border-black shadow-backDrop rounded-md p-3 mb-8" height="200" width="270"></canvas>
+
+        <div class="mx-auto w-fit p-2">
+            <button id="dialog-delete" class="p-2 box-border bg-accentGreen border-[3px] border-black shadow-backDrop rounded-md">Delete</button>
+            <button id="dialog-pluss-two" class="p-2 box-border bg-accentGreen border-[3px] border-black shadow-backDrop rounded-md">+2</button>
+            <button id="dialog-dnf" class="p-2 box-border bg-accentGreen border-[3px] border-black shadow-backDrop rounded-md">DNF</button>
+        </div>
+    </dialog>
+    <main class="h-full flex flex-col bg-main bg-center bg-[linear-gradient(to_right,#ffffff33_1px,transparent_1px),linear-gradient(to_bottom,#ffffff33_1px,transparent_1px)] bg-[size:40px_40px] border-black border-4 rounded-lg">
+        <div class="flex flex-col items-center">
+            <h1 id="scramble" class="bg-accentAqua text-xs sm:text-lg md:text-xl lg:text-3xl font-bold px-1 lg:px-3 py-2 border-[3px] rounded-md border-black shadow-backDrop mt-6 select-text mx-2 sm:mx-4 md:mx-6 lg:mx-12 text-center max-h-24"></h1>
+            <h1 id="timer" class="bg-accentGreen text-4xl sm:text-6xl lg:text-8xl align-baseline font-bold pt-3 sm:pt-4 px-3 sm:px-4 lg:px-10 py-1 border-[3px] border-black shadow-backDrop rounded-md my-12 font-CourierPrime">
+                <span id="minutes"></span><span id="seconds">00</span>.<span id="tens">000</span>
+            </h1>
+        </div>
+
+        <section class="mb-0 mt-auto p-6 box-border flex max-h-[31rem] justify-center h-full">
+            <div class="h-full bg-white border-4 border-black shadow-backDrop rounded-lg box-border overflow-y-auto no-scrollbar mr-20">
+                <div class="bg-accentYellow sticky text-3xl font-bold flex p-3 box-border border-4 overflow-hidden rounded-t-lg border-black -m-1 -top-1 min-w-[30rem] justify-between px-4">
+                    <h2 class="">#</h2>
+                    <h2 class="">time</h2>
+                    <h2 class="">ao5</h2>
+                    <h2>ao12</h2>
+                </div>
+                <table id="table" class="border-separate w-[95%] mx-auto border-spacing-x-0 border-spacing-y-3">
+                    <tbody id="tableBody">
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="bg-white border-black border-4 shadow-backDrop rounded-lg flex flex-col">
+                <h2 class="bg-accentAqua -m-1 py-3 px-5 font-bold box-border text-3xl border-4 border-black rounded-t-lg">Scramble</h2>
+
+                <div class="flex flex-col box-border p-[3%] h-full">
+                    <div class="relative">
+                        <button onkeyup="event.preventDefault()" id="comboBox-puzzleSelect" class="w-full px-2 py-1 text-left text-3xl font-LexendMega font-semibold bg-comboBoxBlue border-[3px] border-black shadow-comboBoxBackDrob cursor-pointer flex items-center">
+                            <span class=""></span><span id="puzzle-name"></span><i class="fa-solid fa-caret-down mr-4 ml-auto"></i>
+                        </button>
+                        <div id="options" class="hidden absolute w-full border-[3px] border-black shadow-comboBoxBackDrob -mt-[3px] box-border cursor-pointer">
+                            <a class="text-2xl bg-comboBoxBlue p-2 font-semibold flex hover:bg-comboBoxBlueHover">
+                                <span class="icon-2"></span>
+                                2x2
+                            </a>
+                            <a class="text-2xl bg-comboBoxBlue p-2 font-semibold flex hover:bg-comboBoxBlueHover">
+                                <span class="icon-3"></span>
+                                3x3
+                            </a>
+                            <a class="text-2xl bg-comboBoxBlue p-2 font-semibold flex hover:bg-comboBoxBlueHover">
+                                <span class="icon-4"></span>
+                                4x4
+                            </a>
+                            <a class="text-2xl bg-comboBoxBlue p-2 font-semibold flex hover:bg-comboBoxBlueHover">
+                                <span class="icon-5"></span>
+                                5x5
+                            </a>
+                            <a class="text-2xl bg-comboBoxBlue p-2 font-semibold flex hover:bg-comboBoxBlueHover">
+                                <span class="icon-6"></span>
+                                6x6
+                            </a>
+                            <a class="text-2xl bg-comboBoxBlue p-2 font-semibold flex hover:bg-comboBoxBlueHover">
+                                <span class="icon-7"></span>
+                                7x7
+                            </a>
+                        </div>
+                    </div>
+                    <div class="mt-4 h-full flex flex-col justify-center">
+                        <canvas id="myCanvas" class="w-10/12 box-border mx-auto" width="310"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
