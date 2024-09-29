@@ -3,6 +3,7 @@ import * as timerDesk from "./timerDesk.js";
 import * as timerPhone from "./timerPhone.js";
 import * as timer from "./timer.js";
 import * as comboBoxFunctions from "./comboBoxFunctionality.js";
+import * as comboBoxSessions from "./comboBoxSessions.js";
 import { scrambleCubeArray } from "./scrambleCube.js";
 import { Cube } from "./rubiksCube.js";
 import { Draw } from "./draw.js";

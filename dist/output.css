@@ -544,40 +544,6 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.container{
-  width: 100%;
-}
-
-@media (min-width: 640px){
-  .container{
-    max-width: 640px;
-  }
-}
-
-@media (min-width: 768px){
-  .container{
-    max-width: 768px;
-  }
-}
-
-@media (min-width: 1024px){
-  .container{
-    max-width: 1024px;
-  }
-}
-
-@media (min-width: 1280px){
-  .container{
-    max-width: 1280px;
-  }
-}
-
-@media (min-width: 1536px){
-  .container{
-    max-width: 1536px;
-  }
-}
-
 .absolute{
   position: absolute;
 }
@@ -594,12 +560,20 @@ video {
   top: -0.25rem;
 }
 
+.right-5{
+  right: 1.25rem;
+}
+
 .-m-1{
   margin: -0.25rem;
 }
 
 .m-0{
   margin: 0px;
+}
+
+.m-5{
+  margin: 1.25rem;
 }
 
 .mx-2{
@@ -615,16 +589,6 @@ video {
 .my-12{
   margin-top: 3rem;
   margin-bottom: 3rem;
-}
-
-.mx-40{
-  margin-left: 10rem;
-  margin-right: 10rem;
-}
-
-.mx-5{
-  margin-left: 1.25rem;
-  margin-right: 1.25rem;
 }
 
 .-ml-3{
@@ -667,6 +631,18 @@ video {
   margin-top: auto;
 }
 
+.mt-\[3px\]{
+  margin-top: 3px;
+}
+
+.mt-\[10px\]{
+  margin-top: 10px;
+}
+
+.mr-auto{
+  margin-right: auto;
+}
+
 .box-border{
   box-sizing: border-box;
 }
@@ -677,10 +653,6 @@ video {
 
 .inline-block{
   display: inline-block;
-}
-
-.inline{
-  display: inline;
 }
 
 .flex{
@@ -730,6 +702,15 @@ video {
 
 .w-full{
   width: 100%;
+}
+
+.w-max{
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.w-3\/12{
+  width: 25%;
 }
 
 .min-w-\[30rem\]{
@@ -784,6 +765,14 @@ video {
 
 .justify-between{
   justify-content: space-between;
+}
+
+.justify-items-end{
+  justify-items: end;
+}
+
+.gap-2{
+  gap: 0.5rem;
 }
 
 .overflow-hidden{
@@ -1146,14 +1135,14 @@ td:last-child {
     line-height: 1;
   }
 
-  .sm\:text-sm{
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-  }
-
   .sm\:text-lg{
     font-size: 1.125rem;
     line-height: 1.75rem;
+  }
+
+  .sm\:text-sm{
+    font-size: 0.875rem;
+    line-height: 1.25rem;
   }
 }
 
@@ -1189,6 +1178,11 @@ td:last-child {
     padding-right: 0.75rem;
   }
 
+  .lg\:text-3xl{
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
   .lg\:text-5xl{
     font-size: 3rem;
     line-height: 1;
@@ -1202,10 +1196,5 @@ td:last-child {
   .lg\:text-xl{
     font-size: 1.25rem;
     line-height: 1.75rem;
-  }
-
-  .lg\:text-3xl{
-    font-size: 1.875rem;
-    line-height: 2.25rem;
   }
 }

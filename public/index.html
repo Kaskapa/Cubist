@@ -73,13 +73,35 @@
         </div>
     </dialog>
 
-    <nav>
-        <div>
-            <h1 class="lg:text-5xl sm:text-3xl text-2xl font-black mb-0 inline-block">CUBIST</h1>
-            <h2 class="lg:text-xl sm:text-sm text-xs inline-block font-black m-0 -ml-3">Alpha</h2>
-        </div>
-    </nav>
     <main class="h-full flex flex-col bg-main bg-center bg-[linear-gradient(to_right,#ffffff33_1px,transparent_1px),linear-gradient(to_bottom,#ffffff33_1px,transparent_1px)] bg-[size:40px_40px] border-black border-4 rounded-lg">
+        <div class="flex flex-col justify-items-end">
+            <div class="m-5 w-full text-center">
+                <button onkeyup="event.preventDefault()" id="session_cb" class="px-2 py-1 text-left text-xl font-LexendMega font-semibold bg-comboBoxBlue border-[3px] border-black shadow-comboBoxBackDrob cursor-pointer flex items-center rounded-md gap-2 w-3/12">
+                    <p id="session_name">Sessions</p><i class="fa-solid fa-caret-down ml-auto"></i>
+                </button>
+                <div id="session_options" class="hidden absolute border-[3px] border-black shadow-comboBoxBackDrob -mt-[3px] box-border cursor-pointer w-3/12">
+                    <a id="session_1" class="text-xl bg-comboBoxBlue p-2 font-semibold flex hover:bg-comboBoxBlueHover">
+                        Session 1
+                    </a>
+                    <a id="session_2" class="text-xl bg-comboBoxBlue p-2 font-semibold flex hover:bg-comboBoxBlueHover">
+                        Session 2
+                    </a>
+                    <a id="session_3" class="text-xl bg-comboBoxBlue p-2 font-semibold flex hover:bg-comboBoxBlueHover">
+                        Session 3
+                    </a>
+                    <a id="session_4" class="text-xl bg-comboBoxBlue p-2 font-semibold flex hover:bg-comboBoxBlueHover">
+                        Session 4
+                    </a>
+                    <a id="session_5" class="text-xl bg-comboBoxBlue p-2 font-semibold flex hover:bg-comboBoxBlueHover">
+                        Session 5
+                    </a>
+                    <a id="session_5" class="text-xl bg-comboBoxBlue p-2 font-semibold flex hover:bg-comboBoxBlueHover">
+                        Create new session +
+                    </a>
+                </div>
+            </div>
+        </div>
+        
         <div class="flex flex-col items-center">
             <h1 id="scramble" class="bg-accentAqua text-xs sm:text-lg md:text-xl lg:text-3xl font-bold px-1 lg:px-3 py-2 border-[3px] rounded-md border-black shadow-backDrop mt-6 select-text mx-2 sm:mx-4 md:mx-6 lg:mx-12 text-center max-h-24"></h1>
             <h1 id="timer" class="bg-accentGreen text-4xl sm:text-6xl lg:text-8xl align-baseline font-bold pt-3 sm:pt-4 px-3 sm:px-4 lg:px-10 py-1 border-[3px] border-black shadow-backDrop rounded-md my-12 font-CourierPrime">
