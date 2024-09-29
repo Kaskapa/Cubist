@@ -1,0 +1,42 @@
+body{
+    margin: 0;
+    background: rgb(255,243,207);
+    background: linear-gradient(45deg, rgba(255,243,207,1) 0%, rgba(254,238,255,1) 100%);
+    display: flex;
+    flex-flow: column;
+    height: 100dvh;
+    box-sizing: border-box;
+}
+
+#root{
+    height: 95dvh;
+    margin: auto;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+
+    background-size: 40px 40px;
+    background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+        linear-gradient(to bottom, rgb(255, 255, 255, 0.2) 1px, transparent 1px);
+    background-color: #A388EE;
+    background-position: center;
+
+    border: 5px solid black;
+    border-radius: 1rem;
+    height: 100%;
+
+    width: 95dvw;
+
+    align-items: center;
+
+    box-sizing: border-box;
+
+    padding: 20px;
+}
+
+ScrambleGenerator{
+    margin: 1rem;
+}
