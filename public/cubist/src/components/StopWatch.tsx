@@ -1,7 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import "../styles/stopwatch.css";
 
-function StopWatch() {
+interface StopWatchProps {
+    onStop: () => void;
+}
+
+function StopWatch({ onStop }: StopWatchProps) {
     const [isRunning, setIsRunning] = useState<boolean>(false);
     const [time, setTime] = useState<number>(0);
     const [spaceUp, setSpaceUp] = useState<number>(0);
@@ -34,7 +38,6 @@ function StopWatch() {
         const timeEventHandler = (e: KeyboardEvent) => {
             if (e.code === "Space") {
                 setTimeout(() => {
-                    console.log(timeoutBeforeStart, desiredTime, spaceUp);
                     if (timeoutBeforeStart < desiredTime && spaceUp === 0) {
                         setColor("orange");
                     }
@@ -98,8 +101,6 @@ function StopWatch() {
         }; 
     }, [spaceUp, timeoutBeforeStart]);
 
-    
-
     const startTimer = () => {
         startTimeRef.current = Date.now();
         setIsRunning(true);
@@ -107,6 +108,7 @@ function StopWatch() {
 
     const stopTimer = () => {
         setIsRunning(false);
+        onStop(); // Call the onStop callback when the timer stops
     };
 
     const formatTime = () => {
@@ -118,7 +120,7 @@ function StopWatch() {
         let secondsString = String(seconds).padStart(2, '0');
         let minsString = mins > 0 ? `${String(mins).padStart(2, '0')}:` : '';
 
-        return `${minsString}${secondsString}:${timeMSString}`;
+        return `${minsString}${secondsString}.${timeMSString}`;
     };
 
     return (

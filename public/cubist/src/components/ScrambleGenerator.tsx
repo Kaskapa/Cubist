@@ -1,9 +1,14 @@
 import { generateScrambles } from '../scripts/scramble.ts';
 import '../styles/scrambleGenerator.css';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-function ScrambleGenerator() {
+interface ScrambleGeneratorProps {
+    updateScramble: boolean;
+    updateScrambleReseter: () => void;
+}
+
+function ScrambleGenerator({ updateScramble, updateScrambleReseter }: ScrambleGeneratorProps) {
     const [scrambles, setScrambles] = useState<string[]>([generateScrambles(3)?.join(" ") || ""]);
     const [currentIndex, setCurrentIndex] = useState<number>(0);
 
@@ -26,6 +31,13 @@ function ScrambleGenerator() {
             generateNewScramble();
         }
     };
+
+    useEffect(() => {
+        if (updateScramble) {
+            generateNewScramble();
+            updateScrambleReseter();
+        }
+    }, [updateScramble]);
 
     return (
         <div className='container'>
