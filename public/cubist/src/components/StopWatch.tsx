@@ -48,7 +48,7 @@ function StopWatch() {
         };
 
         const keyDownHandler = (e: KeyboardEvent) => {
-            if (e.code === "Space" && spaceUp === 0 && timeoutBeforeStart >= desiredTime) {
+            if (e.code === "Space" && spaceUp === 0 && timeoutBeforeStart >= desiredTime && color !== "red") {
                 setColor("green");
             }
         };
@@ -123,7 +123,7 @@ function StopWatch() {
 
     return (
         <>
-            <h1 style={{ color }}>{formatTime()}</h1>
+            <h1 className={color}>{formatTime()}</h1>
         </>
     );
 }
